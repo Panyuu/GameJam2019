@@ -4,27 +4,44 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Stores GameObject player.
-    [SerializeField] GameObject player;
-
-    // KeyCodes are asigned on the model itself.
-    [SerializeField] KeyCode up, down, left, right;
-
+    
+    // Player Objects
+    [SerializeField] GameObject rat;
+    [SerializeField] GameObject doctor;
+    
     // Speed is asigned on object itself (rats faster than plaguedoctor).
     [SerializeField] int speed;
+
+    private void Start() {
+
+        speed = 7;
+    }
 
     // Update is called once per frame
     void Update()
     {
-
+        moveDoctor();
     }
 
-    public static void movePlayer() {
+    public void moveDoctor() {
 
-        //if (Input.GetKeyDown.Equals(up)) { 
-        
-        
-        //}
+        if (Input.GetKey(KeyCode.W)) {
+
+            Debug.Log("hi");
+            doctor.transform.position = new Vector3(doctor.transform.position.x, 0, doctor.transform.position.z + speed * Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.S)) {
+
+            doctor.transform.position = new Vector3(doctor.transform.position.x, 0, doctor.transform.position.z - speed * Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.A)) {
+
+            doctor.transform.position = new Vector3(doctor.transform.position.x - speed * Time.deltaTime, 0, doctor.transform.position.z);
+        }
+        else if (Input.GetKey(KeyCode.D)) {
+
+            doctor.transform.position = new Vector3(doctor.transform.position.x + speed * Time.deltaTime, 0, doctor.transform.position.z);
+        }
     
     }
 }
