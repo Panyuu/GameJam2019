@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DefaultSettings
   m_EditorClassIdentifier: 
   camSettigns:
-    maxDistFromPlayer: 4
+    maxDistFromPlayer: 2
     followSpeed: 1
