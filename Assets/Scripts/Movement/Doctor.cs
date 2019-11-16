@@ -12,11 +12,12 @@ public class Doctor : MonoBehaviour {
     private float _speed;
     private NavMeshAgent _agent;
 
+    private Animator _animator;
 
     // Used for PickUp function
     private bool _insideTrigger, _incenseCarried;
-    public GameObject doctor;
     private GameObject _incense;
+    private static readonly int Walking = Animator.StringToHash("walking");
 
     public void Awake() {
         _speed = 7f;
@@ -32,6 +33,7 @@ public class Doctor : MonoBehaviour {
         _controls.PlagueDoctor.PickUpObject.performed += _ => PickUp();
 
         _agent = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<Animator>();
     }
 
     public void Update() {
@@ -39,8 +41,11 @@ public class Doctor : MonoBehaviour {
          var movement = Time.deltaTime * _speed * new Vector3(_movementInput.x, 0, _movementInput.y);
 
         // Make rats move.
-        //transform.position += Time.deltaTime * _speed * _movement;
         _agent.Move(movement);
+        transform.LookAt(transform.position + movement);
+
+            _animator.SetBool("Walking", movement != Vector3.zero);
+
     }
 
     // Set insideTrigger to true, when trigger is entered and save the gameObject that you're triggered by.
@@ -69,7 +74,7 @@ public class Doctor : MonoBehaviour {
             _incenseCarried = true;
 
             // incense object becomes child object of doctor and is lifted up from the ground.
-            _incense.transform.parent = doctor.transform;
+            _incense.transform.parent = transform;
             var position = _incense.transform.position;
             position = new Vector3(position.x, 0.5f, position.z);
             _incense.transform.position = position;

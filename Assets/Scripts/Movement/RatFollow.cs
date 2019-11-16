@@ -1,15 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.AI;
 
 public class RatFollow : MonoBehaviour
 {
-    public static Transform mainrat;
+    public static Transform Mainrat;
+    private NavMeshAgent _agent;
 
+    private void Awake() {
+        _agent = GetComponent<NavMeshAgent>();
+        transform.parent = transform.root;
+    }
 
     // Update is called once per frame
-    void Update()
-    {
-        transform.position = Vector3.Lerp(transform.position, mainrat.position, Time.deltaTime);
+    private void FixedUpdate() {
+        _agent.SetDestination(Mainrat.position);
     }
 }

@@ -25,7 +25,7 @@ public class Human : MonoBehaviour {
     private void Update() {
         if (!ratIsClose && infectionMeter >= 0 && infectionMeter <= 100) {
             Debug.Log("InfectionMeter decay" + ": " + infectionMeter);
-            infectionMeter -= 10 * Rats.RatCount * Time.deltaTime;
+            //infectionMeter -= 10 * Rats. * Time.deltaTime;
         }
 
         if (!docIsClose && isInfected && health >= 0) HealthDrain();

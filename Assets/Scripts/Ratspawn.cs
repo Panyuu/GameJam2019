@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,7 +8,7 @@ public class Ratspawn : MonoBehaviour
     public GameObject rat;
 
     public static Rats mainrat;
-    List<GameObject> ratObjectList = new List<GameObject>();
+    private List<GameObject> ratObjectList = new List<GameObject>();
 
     private void Start()
     {

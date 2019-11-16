@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class PlagueDoctor : MonoBehaviour {
 
-    public GameObject plagueDoctor;
-
     // Timer until infection reset when health is full.
     private int _waitForNonInfection;
 

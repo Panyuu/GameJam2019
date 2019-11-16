@@ -1,22 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class Rats : MonoBehaviour
-{
+public class Rats : MonoBehaviour {
+    private float _hunger;
 
-    private float hunger;
-
-    List<Rat> ratObjectList = new List<Rat>();
+    private List<Rat> _ratObjectList = new List<Rat>();
 
     public int ratCount;
+
+    public GameObject ratPrefab;
+
     // Update is called once per frame
-    void Start()
-    {
-        RatFollow.mainrat = transform;
-        hunger = 50;
+    private void Start() {
+        RatFollow.Mainrat = transform;
+        _hunger = 50;
         ratCount = 1;
+
+        for (var i = 0; i < 100; i++) {
+            Instantiate(ratPrefab, transform.position, Quaternion.identity);
+        }
     }
 
     private void OnTriggerStay(Collider other) {
@@ -24,7 +26,7 @@ public class Rats : MonoBehaviour
 
         if (!human) return;
 
-        human.Infect(RatCount);
+        human.Infect(ratCount);
     }
 
     private void OnTriggerExit(Collider other) {
@@ -44,32 +46,24 @@ public class Rats : MonoBehaviour
 
             if (!human) return;
 
-            if (human.isDead)
-            {
-                hunger += human.Consume();
-            }
+            if (human.isDead) _hunger += human.Consume();
         }
 
         if (!other.CompareTag("Food")) return;
         var food = other.GetComponent<Human>();
 
-            hunger += food.Consume();
-            Destroy(food);
-        }
+        _hunger += food.Consume();
+        Destroy(food);
     }
 
-    public void RatCounter(int currentcount)
-    {
+
+    public void RatCounter(int currentcount) {
         ratCount = currentcount;
     }
-    public void Hunger()
-    {
 
-    }
-    public void Decay()
-    {
-        if (hunger < -100) return;
+    public void Hunger() { }
 
-
+    public void Decay() {
+        if (_hunger < -100) return;
     }
 }

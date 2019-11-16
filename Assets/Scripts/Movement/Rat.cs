@@ -26,8 +26,8 @@ public class Rat : MonoBehaviour {
         var movement = Time.deltaTime * _speed * new Vector3(_movementInput.x, 0, _movementInput.y);
 
         // Make rats move.
-        //transform.position += Time.deltaTime * _speed * movement;
         _agent.Move(movement);
+        transform.LookAt(transform.position + movement);
     }
 
     // Enables InputSystem for the Rats.
