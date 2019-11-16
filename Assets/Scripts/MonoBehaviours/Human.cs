@@ -13,7 +13,6 @@ public class Human : MonoBehaviour
 
     public float infectionMeter;
 
-=======
     public bool ratIsClose, docIsClose;
 
     public float currentratCountValue;
