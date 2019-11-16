@@ -1,14 +1,22 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Serialization;
 
-public class Rats : MonoBehaviour {
-    public static int RatCount;
+public class Rats : MonoBehaviour
+{
 
-    public float foodCount;
+    private float hunger;
 
+    List<Rat> ratObjectList = new List<Rat>();
+
+    public int ratCount;
     // Update is called once per frame
-    private void Start() {
-        foodCount = 1;
-        RatCount = 1;
+    void Start()
+    {
+        RatFollow.mainrat = transform;
+        hunger = 50;
+        ratCount = 1;
     }
 
     private void OnTriggerStay(Collider other) {
@@ -36,13 +44,32 @@ public class Rats : MonoBehaviour {
 
             if (!human) return;
 
-            if (human.isDead) foodCount += human.Consume();
+            if (human.isDead)
+            {
+                hunger += human.Consume();
+            }
         }
 
         if (!other.CompareTag("Food")) return;
         var food = other.GetComponent<Human>();
 
-        //foodCount += food.Consume;
-        Destroy(food);
+            hunger += food.Consume();
+            Destroy(food);
+        }
+    }
+
+    public void RatCounter(int currentcount)
+    {
+        ratCount = currentcount;
+    }
+    public void Hunger()
+    {
+
+    }
+    public void Decay()
+    {
+        if (hunger < -100) return;
+
+
     }
 }
