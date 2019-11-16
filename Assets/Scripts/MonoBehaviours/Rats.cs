@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class RatScript : MonoBehaviour
+public class Rats : MonoBehaviour
 {
     public GameObject human;
     public float foodCount;
@@ -22,11 +22,11 @@ public class RatScript : MonoBehaviour
     {
         if (other.CompareTag("HumanScript"))
         {
-            var HumanObject = gameObject.GetComponent<HumanScript>();
+            var HumanObject = gameObject.GetComponent<Human>();
 
             if (HumanObject.isDead)
             {
-                var consuming = human.GetComponent<HumanScript>();
+                var consuming = human.GetComponent<Human>();
                 foodCount += consuming.Consume();
             }
             else

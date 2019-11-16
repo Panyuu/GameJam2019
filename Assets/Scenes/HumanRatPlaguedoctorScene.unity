@@ -504,9 +504,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cca30eb8f4040f4b869e16efb10c182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rat: {fileID: 1176945040}
   health: 0
   isDead: 0
   isInfected: 0
+  infectionMeter: 0
 --- !u!135 &798797087
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -730,6 +732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   human: {fileID: 798797081}
   foodCount: 0
+  ratCount: 0
 --- !u!1 &1661084677
 GameObject:
   m_ObjectHideFlags: 0

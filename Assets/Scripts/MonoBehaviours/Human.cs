@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HumanScript : MonoBehaviour
+public class Human : MonoBehaviour
 {
     public GameObject rat;
 
@@ -34,7 +34,7 @@ public class HumanScript : MonoBehaviour
 
         if (isInfected)
         {
-            var RatScript = rat.GetComponent<RatScript>();
+            var RatScript = rat.GetComponent<Rats>();
             health -= (10 + RatScript.ratCount * 0.25f)  * Time.deltaTime;
         }
     }
