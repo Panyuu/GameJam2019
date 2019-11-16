@@ -27,16 +27,11 @@ public class Human : MonoBehaviour
     void Update()
     {
 
-        if(isDead == true)
+        if (isDead == true)
         {
             gameObject.GetComponent<SphereCollider>().radius = 1;
         }
 
-        if (isInfected)
-        {
-            var RatScript = rat.GetComponent<Rats>();
-            health -= (10 + RatScript.ratCount * 0.25f)  * Time.deltaTime;
-        }
     }
 
     public int Consume()
@@ -45,4 +40,25 @@ public class Human : MonoBehaviour
 
         return 1;
     }
+
+    public void Infect(float ratCount)
+    {
+        Debug.Log(infectionMeter);
+        if (isInfected)
+        {
+            health -= (10 + ratCount * 0.25f) * Time.deltaTime;
+        }
+        else
+        {
+            infectionMeter += 10 * Time.deltaTime;
+
+            if (infectionMeter <= 100)
+                return;
+
+            isInfected = true;
+
+        }
+
+    }
+
 }

@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Rats : MonoBehaviour
 {
     public GameObject human;
+    public GameObject food;
+
     public float foodCount;
 
     public int ratCount;
@@ -18,29 +21,48 @@ public class Rats : MonoBehaviour
  
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        var human = other.GetComponent<Human>();
+
+        if (!human)
+        {
+            return;
+        }
+
+        human.Infect(ratCount);
+
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("HumanScript"))
+        if (other.CompareTag("Human"))
         {
-            var HumanObject = gameObject.GetComponent<Human>();
+            var human = other.GetComponent<Human>();
 
-            if (HumanObject.isDead)
+            if (!human)
             {
-                var consuming = human.GetComponent<Human>();
-                foodCount += consuming.Consume();
+                return;
             }
-            else
+
+            if (human.isDead)
             {
-                if (HumanObject.infectionMeter != 100)
-                {
-                    HumanObject.infectionMeter += 10 * Time.deltaTime;
-                }
-                else
-                {
-                    HumanObject.isInfected = true;
-                }
+                foodCount += human.Consume();
             }
         }
 
+        if (other.CompareTag("Food"))
+        {
+            foodCount++;
+            Destroy(food);
+        }
+    }
+
+    void Multiply()
+    {
+        if (foodCount == 10f + (ratCount - 1f) * 4f)
+        {
+            ratCount++;
+        }
     }
 }

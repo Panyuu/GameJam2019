@@ -517,8 +517,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cca30eb8f4040f4b869e16efb10c182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
-  IsDead: 0
+  rat: {fileID: 0}
+  health: 0
+  isDead: 0
+  isInfected: 0
+  infectionMeter: 0
 --- !u!135 &798797087
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -628,7 +631,6 @@ GameObject:
   - component: {fileID: 1176945043}
   - component: {fileID: 1176945042}
   - component: {fileID: 1176945045}
-  - component: {fileID: 1176945046}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
