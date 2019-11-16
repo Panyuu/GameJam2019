@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Incense Scene.unity
+    guid: 19f4d56845c1b124e922ecf2adb98089
+  - enabled: 1
+    path: Assets/Scenes/GameOverScene.unity
+    guid: 6f63e6c5ef49d8d4a86ec876e8490424
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 23e25b6cea12067418192ddf34016a94,
       type: 2}
