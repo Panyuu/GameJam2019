@@ -1,18 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Rats : MonoBehaviour
 {
-    public GameObject human;
-    public GameObject food;
 
-    public float foodCount;
+    private float hunger;
+
+    List<Rat> ratObjectList = new List<Rat>();
 
     public int ratCount;
     // Update is called once per frame
     void Start()
     {
-        foodCount = 1;
+        RatFollow.mainrat = transform;
+        hunger = 50;
         ratCount = 1;
     }
     
@@ -64,7 +67,7 @@ public class Rats : MonoBehaviour
 
             if (human.isDead)
             {
-                foodCount += human.Consume();
+                hunger += human.Consume();
             }
         }
 
@@ -72,16 +75,23 @@ public class Rats : MonoBehaviour
         {
             var food = other.GetComponent<Human>();
 
-            //foodCount += food.Consume;
+            hunger += food.Consume();
             Destroy(food);
         }
     }
 
-    void Multiply()
+    public void RatCounter(int currentcount)
     {
-        if (foodCount == 10f + (ratCount - 1f) * 4f)
-        {
-            ratCount++;
-        }
+        ratCount = currentcount;
+    }
+    public void Hunger()
+    {
+
+    }
+    public void Decay()
+    {
+        if (hunger < -100) return;
+
+
     }
 }

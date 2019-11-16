@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Human
   - Food
+  - Rat
   layers:
   - Default
   - TransparentFX
