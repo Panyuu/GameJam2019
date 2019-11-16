@@ -15,3 +15,5 @@ MonoBehaviour:
   camSettigns:
     maxDistFromPlayer: 2
     followSpeed: 1
+    viewAngle: 60
+    distanceToPlayer: 20
