@@ -70,7 +70,9 @@ public class Rats : MonoBehaviour
 
         if (other.CompareTag("Food"))
         {
-            foodCount++;
+            var food = other.GetComponent<Human>();
+
+            //foodCount += food.Consume;
             Destroy(food);
         }
     }
