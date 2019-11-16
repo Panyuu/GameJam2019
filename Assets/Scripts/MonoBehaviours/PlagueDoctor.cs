@@ -39,7 +39,7 @@ public class PlagueDoctor : MonoBehaviour {
             }
 
             // When health is full one second delay until infection is reversed.
-            else if (human.docIsClose && human.health > 100) {
+            else if (human.docIsClose && human.health >= 100) {
 
                 //Debug.Log("Hi");
 
@@ -59,6 +59,7 @@ public class PlagueDoctor : MonoBehaviour {
             var human = other.GetComponent<Human>();
 
             human.docIsClose = false;
+            setWaitForNonInfection(0);
         }
     }
 
@@ -71,6 +72,7 @@ public class PlagueDoctor : MonoBehaviour {
 
         yield return new WaitUntil(() => getWaitForNonInfection() >= 60);
 
+        setWaitForNonInfection(0);
         human.health = 100;
         human.infectionMeter = 0;
         human.isInfected = false;
