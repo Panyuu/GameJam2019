@@ -1,5 +1,6 @@
 ﻿using Unity.Mathematics;
 using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 [DisallowMultipleComponent]
 public class CameraFollow : MonoBehaviour {
