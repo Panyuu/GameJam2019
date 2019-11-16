@@ -1,4 +1,3 @@
-// ReSharper disable All
 // GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Movement/InputManager.inputactions'
 
 using System;
@@ -9,10 +8,10 @@ using UnityEngine.InputSystem.Utilities;
 
 public class @InputManager : IInputActionCollection, IDisposable
 {
-    private InputActionAsset _asset;
+    private InputActionAsset asset;
     public @InputManager()
     {
-        _asset = InputActionAsset.FromJson(@"{
+        asset = InputActionAsset.FromJson(@"{
     ""name"": ""InputManager"",
     ""maps"": [
         {
@@ -329,41 +328,41 @@ public class @InputManager : IInputActionCollection, IDisposable
     ]
 }");
         // PlagueDoctor
-        _mPlagueDoctor = _asset.FindActionMap("PlagueDoctor", throwIfNotFound: true);
-        _mPlagueDoctorMovement = _mPlagueDoctor.FindAction("Movement", throwIfNotFound: true);
-        _mPlagueDoctorPickUpObject = _mPlagueDoctor.FindAction("PickUpObject", throwIfNotFound: true);
+        m_PlagueDoctor = asset.FindActionMap("PlagueDoctor", throwIfNotFound: true);
+        m_PlagueDoctor_Movement = m_PlagueDoctor.FindAction("Movement", throwIfNotFound: true);
+        m_PlagueDoctor_PickUpObject = m_PlagueDoctor.FindAction("PickUpObject", throwIfNotFound: true);
         // Rat
-        _mRat = _asset.FindActionMap("Rat", throwIfNotFound: true);
-        _mRatMovement = _mRat.FindAction("Movement", throwIfNotFound: true);
+        m_Rat = asset.FindActionMap("Rat", throwIfNotFound: true);
+        m_Rat_Movement = m_Rat.FindAction("Movement", throwIfNotFound: true);
     }
 
     public void Dispose()
     {
-        UnityEngine.Object.Destroy(_asset);
+        UnityEngine.Object.Destroy(asset);
     }
 
     public InputBinding? bindingMask
     {
-        get => _asset.bindingMask;
-        set => _asset.bindingMask = value;
+        get => asset.bindingMask;
+        set => asset.bindingMask = value;
     }
 
     public ReadOnlyArray<InputDevice>? devices
     {
-        get => _asset.devices;
-        set => _asset.devices = value;
+        get => asset.devices;
+        set => asset.devices = value;
     }
 
-    public ReadOnlyArray<InputControlScheme> controlSchemes => _asset.controlSchemes;
+    public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
 
     public bool Contains(InputAction action)
     {
-        return _asset.Contains(action);
+        return asset.Contains(action);
     }
 
     public IEnumerator<InputAction> GetEnumerator()
     {
-        return _asset.GetEnumerator();
+        return asset.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()
@@ -373,42 +372,42 @@ public class @InputManager : IInputActionCollection, IDisposable
 
     public void Enable()
     {
-        _asset.Enable();
+        asset.Enable();
     }
 
     public void Disable()
     {
-        _asset.Disable();
+        asset.Disable();
     }
 
     // PlagueDoctor
-    private readonly InputActionMap _mPlagueDoctor;
-    private IPlagueDoctorActions _mPlagueDoctorActionsCallbackInterface;
-    private readonly InputAction _mPlagueDoctorMovement;
-    private readonly InputAction _mPlagueDoctorPickUpObject;
+    private readonly InputActionMap m_PlagueDoctor;
+    private IPlagueDoctorActions m_PlagueDoctorActionsCallbackInterface;
+    private readonly InputAction m_PlagueDoctor_Movement;
+    private readonly InputAction m_PlagueDoctor_PickUpObject;
     public struct PlagueDoctorActions
     {
-        private @InputManager _mWrapper;
-        public PlagueDoctorActions(@InputManager wrapper) { _mWrapper = wrapper; }
-        public InputAction @Movement => _mWrapper._mPlagueDoctorMovement;
-        public InputAction @PickUpObject => _mWrapper._mPlagueDoctorPickUpObject;
-        public InputActionMap Get() { return _mWrapper._mPlagueDoctor; }
+        private @InputManager m_Wrapper;
+        public PlagueDoctorActions(@InputManager wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_PlagueDoctor_Movement;
+        public InputAction @PickUpObject => m_Wrapper.m_PlagueDoctor_PickUpObject;
+        public InputActionMap Get() { return m_Wrapper.m_PlagueDoctor; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
-        public bool Enabled => Get().enabled;
+        public bool enabled => Get().enabled;
         public static implicit operator InputActionMap(PlagueDoctorActions set) { return set.Get(); }
         public void SetCallbacks(IPlagueDoctorActions instance)
         {
-            if (_mWrapper._mPlagueDoctorActionsCallbackInterface != null)
+            if (m_Wrapper.m_PlagueDoctorActionsCallbackInterface != null)
             {
-                @Movement.started -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnMovement;
-                @Movement.performed -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnMovement;
-                @PickUpObject.started -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnPickUpObject;
-                @PickUpObject.performed -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnPickUpObject;
-                @PickUpObject.canceled -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnPickUpObject;
+                @Movement.started -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnMovement;
+                @PickUpObject.started -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnPickUpObject;
+                @PickUpObject.performed -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnPickUpObject;
+                @PickUpObject.canceled -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnPickUpObject;
             }
-            _mWrapper._mPlagueDoctorActionsCallbackInterface = instance;
+            m_Wrapper.m_PlagueDoctorActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Movement.started += instance.OnMovement;
@@ -423,28 +422,28 @@ public class @InputManager : IInputActionCollection, IDisposable
     public PlagueDoctorActions @PlagueDoctor => new PlagueDoctorActions(this);
 
     // Rat
-    private readonly InputActionMap _mRat;
-    private IRatActions _mRatActionsCallbackInterface;
-    private readonly InputAction _mRatMovement;
+    private readonly InputActionMap m_Rat;
+    private IRatActions m_RatActionsCallbackInterface;
+    private readonly InputAction m_Rat_Movement;
     public struct RatActions
     {
-        private @InputManager _mWrapper;
-        public RatActions(@InputManager wrapper) { _mWrapper = wrapper; }
-        public InputAction @Movement => _mWrapper._mRatMovement;
-        public InputActionMap Get() { return _mWrapper._mRat; }
+        private @InputManager m_Wrapper;
+        public RatActions(@InputManager wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Rat_Movement;
+        public InputActionMap Get() { return m_Wrapper.m_Rat; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
-        public bool Enabled => Get().enabled;
+        public bool enabled => Get().enabled;
         public static implicit operator InputActionMap(RatActions set) { return set.Get(); }
         public void SetCallbacks(IRatActions instance)
         {
-            if (_mWrapper._mRatActionsCallbackInterface != null)
+            if (m_Wrapper.m_RatActionsCallbackInterface != null)
             {
-                @Movement.started -= _mWrapper._mRatActionsCallbackInterface.OnMovement;
-                @Movement.performed -= _mWrapper._mRatActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= _mWrapper._mRatActionsCallbackInterface.OnMovement;
+                @Movement.started -= m_Wrapper.m_RatActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_RatActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_RatActionsCallbackInterface.OnMovement;
             }
-            _mWrapper._mRatActionsCallbackInterface = instance;
+            m_Wrapper.m_RatActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Movement.started += instance.OnMovement;
@@ -454,22 +453,22 @@ public class @InputManager : IInputActionCollection, IDisposable
         }
     }
     public RatActions @Rat => new RatActions(this);
-    private int _mKeyboardMouseSchemeIndex = -1;
+    private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
         get
         {
-            if (_mKeyboardMouseSchemeIndex == -1) _mKeyboardMouseSchemeIndex = _asset.FindControlSchemeIndex("Keyboard & Mouse");
-            return _asset.controlSchemes[_mKeyboardMouseSchemeIndex];
+            if (m_KeyboardMouseSchemeIndex == -1) m_KeyboardMouseSchemeIndex = asset.FindControlSchemeIndex("Keyboard & Mouse");
+            return asset.controlSchemes[m_KeyboardMouseSchemeIndex];
         }
     }
-    private int _mControllerSchemeIndex = -1;
+    private int m_ControllerSchemeIndex = -1;
     public InputControlScheme ControllerScheme
     {
         get
         {
-            if (_mControllerSchemeIndex == -1) _mControllerSchemeIndex = _asset.FindControlSchemeIndex("Controller");
-            return _asset.controlSchemes[_mControllerSchemeIndex];
+            if (m_ControllerSchemeIndex == -1) m_ControllerSchemeIndex = asset.FindControlSchemeIndex("Controller");
+            return asset.controlSchemes[m_ControllerSchemeIndex];
         }
     }
     public interface IPlagueDoctorActions
