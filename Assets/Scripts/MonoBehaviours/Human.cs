@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Human : MonoBehaviour
 {
-    public GameObject rat;
 
     public float health;
 
@@ -14,18 +13,25 @@ public class Human : MonoBehaviour
 
     public float infectionMeter;
 
+    public bool ratIsClose;
+
     // Start is called before the first frame update
     void Start()
     {
         health = 100;
-
         isDead = false;
-
         isInfected = false;
+        ratIsClose = false;
+
     }
 
     void Update()
     {
+        if (!ratIsClose && infectionMeter >= 0)
+        {
+            Debug.Log("InfectionMeter decay" + ": " + infectionMeter);
+            infectionMeter -= 10 * Time.deltaTime;
+        }
 
         if (isDead == true)
         {
@@ -43,13 +49,25 @@ public class Human : MonoBehaviour
 
     public void Infect(float ratCount)
     {
-        Debug.Log(infectionMeter);
+
+        Debug.Log("InfectionMeter" + " : " + infectionMeter);
+
+        if (health <= 0)
+        {
+            isDead = true;
+            return;
+        }
+
         if (isInfected)
         {
             health -= (10 + ratCount * 0.25f) * Time.deltaTime;
+            Debug.Log("Health" + " : " + health);
         }
         else
         {
+            if (infectionMeter > 100)
+                return;
+
             infectionMeter += 10 * Time.deltaTime;
 
             if (infectionMeter <= 100)

@@ -34,11 +34,28 @@ public class Rats : MonoBehaviour
 
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Human"))
+        {
+            var human = other.GetComponent<Human>();
+            
+            if (!human)
+            {
+                return;
+            }
+
+            human.ratIsClose = false;
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Human"))
         {
             var human = other.GetComponent<Human>();
+
+            human.ratIsClose = true;
 
             if (!human)
             {
