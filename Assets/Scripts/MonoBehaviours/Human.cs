@@ -15,6 +15,8 @@ public class Human : MonoBehaviour
 
     public bool ratIsClose;
 
+    public float currentratCountValue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,10 +29,20 @@ public class Human : MonoBehaviour
 
     void Update()
     {
-        if (!ratIsClose && infectionMeter >= 0)
+        if (!ratIsClose && infectionMeter >= 0 && infectionMeter <= 100)
         {
             Debug.Log("InfectionMeter decay" + ": " + infectionMeter);
             infectionMeter -= 10 * Time.deltaTime;
+        }
+
+        if (isInfected && health >= 0)
+        {
+            HealthDrain();
+        }
+        
+        if(health <= 0)
+        {
+            isDead = true;
         }
 
         if (isDead == true)
@@ -54,14 +66,7 @@ public class Human : MonoBehaviour
 
         if (health <= 0)
         {
-            isDead = true;
             return;
-        }
-
-        if (isInfected)
-        {
-            health -= (10 + ratCount * 0.25f) * Time.deltaTime;
-            Debug.Log("Health" + " : " + health);
         }
         else
         {
@@ -71,12 +76,21 @@ public class Human : MonoBehaviour
             infectionMeter += 10 * Time.deltaTime;
 
             if (infectionMeter <= 100)
+            {
+                currentratCountValue = ratCount;
                 return;
+            }
 
             isInfected = true;
 
         }
 
+    }
+
+    public void HealthDrain()
+    {
+        health -= (10 + currentratCountValue * 0.25f) * Time.deltaTime;
+        Debug.Log("Health" + " : " + health);
     }
 
 }
