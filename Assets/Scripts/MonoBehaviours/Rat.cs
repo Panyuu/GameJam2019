@@ -5,7 +5,8 @@ public class RatScript : MonoBehaviour
     public GameObject human;
     public float foodCount;
 
-    public int ratCount;
+    public static int ratCount;
+    
     // Update is called once per frame
     void Start()
     {
