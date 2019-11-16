@@ -1,0 +1,266 @@
+fileFormatVersion: 2
+guid: 305444ea7cb6aa4498c5dc6650d9501c
+ModelImporter:
+  serializedVersion: 26
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
+  - first:
+      74: 5862543501114407046
+    second: Death
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Death
+      takeName: Armature|Armature|Take 001|BaseLayer
+      internalID: 0
+      firstFrame: 5
+      lastFrame: 105
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: "Unity_Mensch_m\xE4nnlich(Clone)"
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: "Unity_Mensch_m\xE4nnlich(Clone)"
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000081460335, y: -0, z: -0, w: 1}
+      scale: {x: 0.01, y: 0.01, z: 0.01}
+    - name: "h\xFCfte1"
+      parentName: Armature
+      position: {x: -0.10464226, y: 9.582897, z: -0.14028513}
+      rotation: {x: 3.655086e-17, y: 1.1888024e-19, z: 0.0006838592, w: 0.99999976}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: "R\xFCcken"
+      parentName: "h\xFCfte1"
+      position: {x: -0.0033124248, y: 1.0184392, z: 0.00000001490116}
+      rotation: {x: 4.7304712e-17, y: 4.771602e-17, z: -0.7046809, w: 0.70952433}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Brust
+      parentName: "R\xFCcken"
+      position: {x: -3.16377, y: -0.00000021420419, z: 0.0000000149011585}
+      rotation: {x: 4.8469916e-26, y: -1.5348808e-26, z: 0.0097518535, w: 0.9999525}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: Hals
+      parentName: Brust
+      position: {x: -0.9727644, y: 0.00000008940697, z: 0.0000000149011585}
+      rotation: {x: 0.99958587, y: -0.02877717, z: -0.00000007163466, w: -0.00000013527553}
+      scale: {x: 0.99991065, y: 0.9999995, z: 1}
+    - name: Kopf
+      parentName: Hals
+      position: {x: -0.9317771, y: -0.0000051435377, z: 0.00000015095388}
+      rotation: {x: -0.00000004358738, y: 0.00000016335797, z: -0.010197769, w: 0.999948}
+      scale: {x: 1, y: 1, z: 1}
+    - name: KopfSpitze
+      parentName: Kopf
+      position: {x: -1.5203938, y: -0.000012628737, z: -0.0000001304762}
+      rotation: {x: -0.7039178, y: 0.71028143, z: 0.000000031634006, w: 0.00000015612166}
+      scale: {x: 1, y: 1.0000002, z: 1}
+    - name: R_Arm
+      parentName: Brust
+      position: {x: -0.2804956, y: 0.9519667, z: 0.40214646}
+      rotation: {x: -0.6396845, y: 0.7128744, z: 0.21251734, w: 0.19352089}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: R_Schulter
+      parentName: R_Arm
+      position: {x: -1.0045509, y: -0.0000013928415, z: 1.0336541}
+      rotation: {x: -0.0033806872, y: 0.21718244, z: -0.026043857, w: 0.9757777}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
+    - name: R_Ellbogen
+      parentName: R_Schulter
+      position: {x: -2.5825443, y: -0.0000010016374, z: 0.00000008195639}
+      rotation: {x: 0.0008146461, y: 0.012757865, z: -0.039156266, w: 0.99915135}
+      scale: {x: 1, y: 0.9999999, z: 1.0000001}
+    - name: R_Hand
+      parentName: R_Ellbogen
+      position: {x: -2.2559052, y: -0.00000011920929, z: 0.000000074505806}
+      rotation: {x: 0.0020207772, y: -0.013294374, z: -0.08390208, w: 0.99638325}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: R_Finger
+      parentName: R_Hand
+      position: {x: -1.2195491, y: -0.0000014053658, z: 0.000000074505806}
+      rotation: {x: -0.13584286, y: 0.9906513, z: 0.0071402304, w: 0.010284717}
+      scale: {x: 0.99999976, y: 0.99999976, z: 0.99999994}
+    - name: L_Arm
+      parentName: Brust
+      position: {x: -0.28878117, y: -0.8348684, z: 0.4021465}
+      rotation: {x: -0.17194599, y: 0.20684245, z: 0.69286746, w: 0.6690183}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: L_Schulter
+      parentName: L_Arm
+      position: {x: -0.77045876, y: 0.000000461936, z: -1.0336543}
+      rotation: {x: -0.008931435, y: -0.28146484, z: -0.03215804, w: 0.95899093}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: L_Ellbogen
+      parentName: L_Schulter
+      position: {x: -2.72153, y: -0.0000012693927, z: -0.00000010430813}
+      rotation: {x: 0.0000000057189027, y: 0.0000000020809239, z: 0.00000041448584,
+        w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_Hand
+      parentName: L_Ellbogen
+      position: {x: -2.310391, y: -0.0000005699694, z: 0.00000010430813}
+      rotation: {x: 0.0000000012660166, y: 6.9849193e-10, z: 0.00000058873775, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: L_Finger
+      parentName: L_Hand
+      position: {x: -1.2278826, y: -0.0000012340024, z: 0.000000014901161}
+      rotation: {x: -0.004992143, y: 0.0107237585, z: -0.0123796575, w: 0.99985343}
+      scale: {x: 0.99999994, y: 0.9999999, z: 0.9999998}
+    - name: L_Bein
+      parentName: "h\xFCfte1"
+      position: {x: -0.64477754, y: -0.46968567, z: 0.03180237}
+      rotation: {x: 0.49505004, y: 0.47426423, z: 0.52264345, w: 0.5067966}
+      scale: {x: 0.99999994, y: 0.9999998, z: 0.99999976}
+    - name: L_KNie
+      parentName: L_Bein
+      position: {x: -3.4735482, y: 0.000000014901161, z: -0.00000012014061}
+      rotation: {x: -0.00023863789, y: -0.0046844273, z: -0.034604426, w: 0.9993901}
+      scale: {x: 0.99999994, y: 0.9999998, z: 0.99999994}
+    - name: "L_Fu\xDF"
+      parentName: L_KNie
+      position: {x: -4.6939282, y: -0.32562727, z: 0.04406136}
+      rotation: {x: 0.00000006261349, y: 0.00000003002413, z: -0.59255683, w: 0.8055287}
+      scale: {x: 0.9999996, y: 0.99999964, z: 0.99999964}
+    - name: L_Zeh
+      parentName: "L_Fu\xDF"
+      position: {x: -1.8494345, y: 0.00000056717545, z: -0.00000028824434}
+      rotation: {x: -0.101885, y: -0.6997281, z: -0.10188498, w: 0.6997282}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+    - name: R_bein
+      parentName: "h\xFCfte1"
+      position: {x: 0.6865672, y: -0.6071174, z: 0.2753506}
+      rotation: {x: 0.6922414, y: 0.7209503, z: 0.012260433, w: -0.029703183}
+      scale: {x: 0.99999994, y: 0.9999998, z: 0.99999994}
+    - name: R_knie
+      parentName: R_bein
+      position: {x: -3.664542, y: 0.000000014901161, z: -0.0000000037252903}
+      rotation: {x: -0.000515146, y: -0.040215462, z: -0.0045457105, w: 0.9991806}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1.0000001}
+    - name: "R_fu\xDF"
+      parentName: R_knie
+      position: {x: -4.5702934, y: -0.041764636, z: 0.36871272}
+      rotation: {x: -0.5444397, y: -0.47328934, z: -0.36628667, w: 0.58772165}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: R_Zeh
+      parentName: "R_fu\xDF"
+      position: {x: -1.8199219, y: -0.00000020861626, z: 0.00000013411045}
+      rotation: {x: -0.096515715, y: -0.70048887, z: -0.0965157, w: 0.700489}
+      scale: {x: 1.0000001, y: 0.9999998, z: 1}
+    - name: "K\xF6rper"
+      parentName: "Unity_Mensch_m\xE4nnlich(Clone)"
+      position: {x: 0.00000000115484, y: 2.328307e-10, z: -2.8856445e-10}
+      rotation: {x: 0.000000081460335, y: -0.000000007697965, z: 7.0212963e-10, w: 1}
+      scale: {x: 0.009999999, y: 0.01, z: 0.01}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: "h\xFCfte1"
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
