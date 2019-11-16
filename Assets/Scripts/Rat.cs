@@ -1,49 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine;
 
-public class Rat : MonoBehaviour
-{
+public class Rat : MonoBehaviour {
     // Creates Instance of InputManager class.
-    InputManager controls;
+    private InputManager _controls;
 
     // Stores Context of the InputSystem.
-    Vector2 movementInput;
+    private Vector2 _movementInput;
 
-    // Used to change the position of the player.
-    Vector3 movement;
-
-    float speed;
+    private float _speed;
 
     public void Awake() {
+        _speed = 9f;
+        _controls = new InputManager();
 
-        speed = 9f;
-        controls = new InputManager();
-        
         // Gets the context of the InputSystem and saves it in movementInput.
-        controls.Rat.Movement.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+        _controls.Rat.Movement.performed += ctx => _movementInput = ctx.ReadValue<Vector2>();
     }
 
     public void Update() {
-
         // Creates the movement Vector3, to change the player's position.
-        movement = new Vector3(movementInput.x, 0, movementInput.y);
+        var movement = new Vector3(_movementInput.x, 0, _movementInput.y);
 
         // Make rats move.
-        transform.position += movement * speed * Time.deltaTime;
+        transform.position += Time.deltaTime * _speed * movement;
     }
 
     // Enables InputSystem for the Rats.
     private void OnEnable() {
-
-        controls.Rat.Enable();
-
+        _controls.Rat.Enable();
     }
 
     // Disables InputSystem for the Rats.
     private void OnDisable() {
-
-        controls.Rat.Disable();
+        _controls.Rat.Disable();
     }
 }
