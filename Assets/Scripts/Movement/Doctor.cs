@@ -16,6 +16,8 @@ public class Doctor : MonoBehaviour
 
     float speed;
 
+    string[] gamepads;
+
     public void Awake() {
 
         speed = 7f;
@@ -27,11 +29,18 @@ public class Doctor : MonoBehaviour
 
     public void Update() {
 
+        //gamepads = Input.GetJoystickNames();
+
+        for (int i = 0; i < Input.GetJoystickNames().Length; i++) {
+
+            Debug.Log(Input.GetJoystickNames()[i] + " is moved");
+        }
+
         // Creates the movement Vector3, to change the player's position.
         movement = new Vector3(movementInput.x, 0, movementInput.y);
 
         // Make rats move.
-        transform.position += movement * speed * Time.deltaTime;
+        transform.position += movement * speed * Time.deltaTime;        
     }
 
     // Enables the InputSystem for PlagueDoctor.
