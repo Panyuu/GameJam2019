@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 
-public class Rat : MonoBehaviour
+public class RatScript : MonoBehaviour
 {
     public GameObject human;
     public float foodCount;
+
+    public int ratCount;
     // Update is called once per frame
+    void Start()
+    {
+        foodCount = 1;
+        ratCount = 1;
+    }
+    
     void Update()
     {
  
@@ -12,18 +20,25 @@ public class Rat : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Human"))
+        if (other.CompareTag("HumanScript"))
         {
-            var HumanObject = gameObject.GetComponent<Human>();
+            var HumanObject = gameObject.GetComponent<HumanScript>();
 
             if (HumanObject.isDead)
             {
-                var consuming = human.GetComponent<Human>();
+                var consuming = human.GetComponent<HumanScript>();
                 foodCount += consuming.Consume();
             }
             else
             {
-                HumanObject.isInfected = true;
+                if (HumanObject.infectionMeter != 100)
+                {
+                    HumanObject.infectionMeter += 10 * Time.deltaTime;
+                }
+                else
+                {
+                    HumanObject.isInfected = true;
+                }
             }
         }
 

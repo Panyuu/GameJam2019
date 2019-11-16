@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Human : MonoBehaviour
+public class HumanScript : MonoBehaviour
 {
+    public GameObject rat;
+
     public float health;
 
     public bool isDead;
 
     public bool isInfected;
+
+    public float infectionMeter;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +26,7 @@ public class Human : MonoBehaviour
 
     void Update()
     {
+
         if(isDead == true)
         {
             gameObject.GetComponent<SphereCollider>().radius = 1;
@@ -29,7 +34,8 @@ public class Human : MonoBehaviour
 
         if (isInfected)
         {
-            health -= 10 * Time.deltaTime;
+            var RatScript = rat.GetComponent<RatScript>();
+            health -= (10 + RatScript.ratCount * 0.25f)  * Time.deltaTime;
         }
     }
 
