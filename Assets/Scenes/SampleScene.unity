@@ -596,20 +596,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1176945040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fac93b128bdddc641b3f26e697494b22, type: 3}
+  m_Script: {fileID: 11500000, guid: 292a6e87132a6ba4dad3cd0e32c14b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAction:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-  rat: {fileID: 1176945040}
-  doctor: {fileID: 563077253}
-  speed: 7
 --- !u!1 &1661084677
 GameObject:
   m_ObjectHideFlags: 0
