@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class RatEating : MonoBehaviour
+public class Rat : MonoBehaviour
 {
     public GameObject human;
     public float foodCount;
@@ -14,12 +14,16 @@ public class RatEating : MonoBehaviour
     {
         if (other.CompareTag("Human"))
         {
-            var human = gameObject.GetComponent<Human>();
+            var HumanObject = gameObject.GetComponent<Human>();
 
-            if (human.IsDead)
+            if (HumanObject.isDead)
             {
                 var consuming = human.GetComponent<Human>();
                 foodCount += consuming.Consume();
+            }
+            else
+            {
+                HumanObject.isInfected = true;
             }
         }
 
