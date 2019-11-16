@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine.Serialization;
 
 [Serializable]
 public struct FollowCameraSettings {
