@@ -28,6 +28,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ShowControls",
+                    "type": "Button",
+                    "id": "1fc8a895-0941-489a-98fe-3cdf77d28bf4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -184,6 +192,17 @@
                     "action": "CrowMode",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ddabb74-d437-4b3f-b003-c3650661f0ab",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "ShowControls",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -203,6 +222,14 @@
                     "name": "Dash",
                     "type": "Button",
                     "id": "c95f0de5-9a31-4c80-8d5c-ccb28337ceeb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ShowControls",
+                    "type": "Button",
+                    "id": "d45e6249-746c-4058-8368-0af5a6b17b07",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -338,6 +365,17 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b12462a-fc11-466f-8c78-9d0553bb030a",
+                    "path": "<Keyboard>/rightCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "ShowControls",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

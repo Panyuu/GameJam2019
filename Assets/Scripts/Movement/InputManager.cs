@@ -41,6 +41,14 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ShowControls"",
+                    ""type"": ""Button"",
+                    ""id"": ""1fc8a895-0941-489a-98fe-3cdf77d28bf4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -197,6 +205,17 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""action"": ""CrowMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ddabb74-d437-4b3f-b003-c3650661f0ab"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""ShowControls"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -216,6 +235,14 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""name"": ""Dash"",
                     ""type"": ""Button"",
                     ""id"": ""c95f0de5-9a31-4c80-8d5c-ccb28337ceeb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ShowControls"",
+                    ""type"": ""Button"",
+                    ""id"": ""d45e6249-746c-4058-8368-0af5a6b17b07"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -353,6 +380,17 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b12462a-fc11-466f-8c78-9d0553bb030a"",
+                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""ShowControls"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -392,10 +430,12 @@ public class @InputManager : IInputActionCollection, IDisposable
         m_PlagueDoctor_Movement = m_PlagueDoctor.FindAction("Movement", throwIfNotFound: true);
         m_PlagueDoctor_PickUpObject = m_PlagueDoctor.FindAction("PickUpObject", throwIfNotFound: true);
         m_PlagueDoctor_CrowMode = m_PlagueDoctor.FindAction("CrowMode", throwIfNotFound: true);
+        m_PlagueDoctor_ShowControls = m_PlagueDoctor.FindAction("ShowControls", throwIfNotFound: true);
         // Rat
         m_Rat = asset.FindActionMap("Rat", throwIfNotFound: true);
         m_Rat_Movement = m_Rat.FindAction("Movement", throwIfNotFound: true);
         m_Rat_Dash = m_Rat.FindAction("Dash", throwIfNotFound: true);
+        m_Rat_ShowControls = m_Rat.FindAction("ShowControls", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -448,6 +488,7 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputAction m_PlagueDoctor_Movement;
     private readonly InputAction m_PlagueDoctor_PickUpObject;
     private readonly InputAction m_PlagueDoctor_CrowMode;
+    private readonly InputAction m_PlagueDoctor_ShowControls;
     public struct PlagueDoctorActions
     {
         private @InputManager m_Wrapper;
@@ -455,6 +496,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_PlagueDoctor_Movement;
         public InputAction @PickUpObject => m_Wrapper.m_PlagueDoctor_PickUpObject;
         public InputAction @CrowMode => m_Wrapper.m_PlagueDoctor_CrowMode;
+        public InputAction @ShowControls => m_Wrapper.m_PlagueDoctor_ShowControls;
         public InputActionMap Get() { return m_Wrapper.m_PlagueDoctor; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -473,6 +515,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @CrowMode.started -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnCrowMode;
                 @CrowMode.performed -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnCrowMode;
                 @CrowMode.canceled -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnCrowMode;
+                @ShowControls.started -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnShowControls;
+                @ShowControls.performed -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnShowControls;
+                @ShowControls.canceled -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnShowControls;
             }
             m_Wrapper.m_PlagueDoctorActionsCallbackInterface = instance;
             if (instance != null)
@@ -486,6 +531,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @CrowMode.started += instance.OnCrowMode;
                 @CrowMode.performed += instance.OnCrowMode;
                 @CrowMode.canceled += instance.OnCrowMode;
+                @ShowControls.started += instance.OnShowControls;
+                @ShowControls.performed += instance.OnShowControls;
+                @ShowControls.canceled += instance.OnShowControls;
             }
         }
     }
@@ -496,12 +544,14 @@ public class @InputManager : IInputActionCollection, IDisposable
     private IRatActions m_RatActionsCallbackInterface;
     private readonly InputAction m_Rat_Movement;
     private readonly InputAction m_Rat_Dash;
+    private readonly InputAction m_Rat_ShowControls;
     public struct RatActions
     {
         private @InputManager m_Wrapper;
         public RatActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Rat_Movement;
         public InputAction @Dash => m_Wrapper.m_Rat_Dash;
+        public InputAction @ShowControls => m_Wrapper.m_Rat_ShowControls;
         public InputActionMap Get() { return m_Wrapper.m_Rat; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -517,6 +567,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Dash.started -= m_Wrapper.m_RatActionsCallbackInterface.OnDash;
                 @Dash.performed -= m_Wrapper.m_RatActionsCallbackInterface.OnDash;
                 @Dash.canceled -= m_Wrapper.m_RatActionsCallbackInterface.OnDash;
+                @ShowControls.started -= m_Wrapper.m_RatActionsCallbackInterface.OnShowControls;
+                @ShowControls.performed -= m_Wrapper.m_RatActionsCallbackInterface.OnShowControls;
+                @ShowControls.canceled -= m_Wrapper.m_RatActionsCallbackInterface.OnShowControls;
             }
             m_Wrapper.m_RatActionsCallbackInterface = instance;
             if (instance != null)
@@ -527,6 +580,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @ShowControls.started += instance.OnShowControls;
+                @ShowControls.performed += instance.OnShowControls;
+                @ShowControls.canceled += instance.OnShowControls;
             }
         }
     }
@@ -554,10 +610,12 @@ public class @InputManager : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnPickUpObject(InputAction.CallbackContext context);
         void OnCrowMode(InputAction.CallbackContext context);
+        void OnShowControls(InputAction.CallbackContext context);
     }
     public interface IRatActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnShowControls(InputAction.CallbackContext context);
     }
 }

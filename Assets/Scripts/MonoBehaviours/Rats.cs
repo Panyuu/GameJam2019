@@ -27,7 +27,7 @@ public class Rats : MonoBehaviour {
 
     private void Update()
     {
-        Debug.Log(ratCount);
+        //Debug.Log(ratCount);
 
         Hunger();
     }

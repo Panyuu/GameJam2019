@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Crow : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class Crow : MonoBehaviour
 
     public Camera docCam;
     public Doctor doctor;
+
+    public Image plagueDoctorImage, crowImage;
+    public Sprite docIcon, greyCrowIcon;
 
     public void Awake() {
 
@@ -38,6 +42,9 @@ public class Crow : MonoBehaviour
     public void NormalMode() {
         docCam.enabled = true;
         doctor.enabled = true;
+
+        plagueDoctorImage.sprite = docIcon;
+        crowImage.sprite = greyCrowIcon;
 
         gameObject.SetActive(false);
     }
