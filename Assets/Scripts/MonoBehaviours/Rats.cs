@@ -6,14 +6,12 @@ using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class Rats : MonoBehaviour {
-    private float _hunger;
 
     private float _satiation;
 
-    public GameObject swarmRats;
     Queue<GameObject> _ratObjectQueue = new Queue<GameObject>();
 
-    public int ratCount;
+    int ratCount;
 
     public GameObject ratPrefab;
 
@@ -28,7 +26,7 @@ public class Rats : MonoBehaviour {
 
     void Update()
     {
-        Debug.Log(_satiation);
+        //Debug.Log(_satiation);
 
         Hunger();
     }
@@ -117,7 +115,7 @@ public class Rats : MonoBehaviour {
             mainRat.transform.position = position;
 
             var mainratposition = position;
-            var newRat = Instantiate(swarmRats, mainratposition, Random.rotation);
+            var newRat = Instantiate(ratPrefab, mainratposition, Random.rotation);
 
             newRat.gameObject.AddComponent<RatFollow>();
             _ratObjectQueue.Enqueue(newRat);

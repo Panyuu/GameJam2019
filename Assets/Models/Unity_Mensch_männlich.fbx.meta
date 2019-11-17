@@ -31,7 +31,7 @@ ModelImporter:
     animationRetargetingWarnings: "\nRetargeting quality report for clip 'Take 001':\n\tLeftLowerLeg
       average position error 0.4 mm and maximum position error 1.2 mm at time 1:14
       (18.8%) Frame 38\n\tRightLowerLeg average position error 0.4 mm and maximum
-      position error 6.7 mm at time 0: 7 (3.0%) Frame 7\n\tLeftUpperArm average position
+      position error 6.7 mm at time 0: 6 (2.5%) Frame 6\n\tLeftUpperArm average position
       error 3.6 mm and maximum position error 43.2 mm at time 5: 0 (60.4%) Frame 120\n\tLeftLowerArm
       average position error 3.4 mm and maximum position error 38.8 mm at time 5:
       5 (62.9%) Frame 125\n\tLeftHand average position error 2.7 mm and maximum position
@@ -113,7 +113,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 20
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -333,122 +333,122 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: "h\xFCfte1"
       parentName: "Unity_Mensch_m\xE4nnlich(Clone)"
-      position: {x: -0.0010464226, y: 0.09582897, z: -0.002753506}
+      position: {x: -0.00020928457, y: 0.019165786, z: -0.0005507014}
       rotation: {x: 3.655086e-17, y: 1.1888025e-19, z: 0.00068385975, w: 0.99999976}
       scale: {x: 1, y: 1, z: 1}
     - name: "R\xFCcken"
       parentName: "h\xFCfte1"
-      position: {x: -0.00003312432, y: 0.010184387, z: 0}
+      position: {x: -0.0000066248667, y: 0.002036878, z: 0}
       rotation: {x: 5.349246e-17, y: 5.3935074e-17, z: -0.70468086, w: 0.7095244}
       scale: {x: 1, y: 1, z: 1}
     - name: Brust
       parentName: "R\xFCcken"
-      position: {x: -0.031637695, y: 9.714452e-19, z: 0}
+      position: {x: -0.0063275388, y: 1.9428898e-19, z: 0}
       rotation: {x: 0, y: 0, z: 0.009751733, w: 0.9999525}
       scale: {x: 1, y: 1, z: 1}
     - name: Hals
       parentName: Brust
-      position: {x: -0.009727633, y: 2.057382e-17, z: 0}
+      position: {x: -0.001945527, y: 4.1147632e-18, z: 0}
       rotation: {x: 0.9995858, y: -0.028778454, z: -1.762172e-18, w: 6.120698e-17}
       scale: {x: 1, y: 1, z: 1}
     - name: Kopf
       parentName: Hals
-      position: {x: -0.009316939, y: 2.4538182e-17, z: 2.998683e-33}
+      position: {x: -0.0018633876, y: 4.907637e-18, z: 5.997367e-34}
       rotation: {x: 6.0604764e-17, y: -6.185355e-17, z: -0.010197084, w: 0.999948}
       scale: {x: 1, y: 1, z: 1}
     - name: KopfSpitze
       parentName: Kopf
-      position: {x: -0.015202575, y: -5.2140288e-18, z: 3.796745e-20}
+      position: {x: -0.0030405165, y: -1.0428059e-18, z: 7.593492e-21}
       rotation: {x: -0.7039145, y: 0.7102847, z: -8.6594726e-17, w: -3.9006027e-19}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Arm
       parentName: Brust
-      position: {x: -0.0028049615, y: 0.009519665, z: 0.004021465}
+      position: {x: -0.00056099216, y: 0.0019039323, z: 0.0008042932}
       rotation: {x: -0.63968486, y: 0.712874, z: 0.21251743, w: 0.19352101}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Schulter
       parentName: R_Arm
-      position: {x: -0.010045508, y: -1.9306984e-17, z: 0.010336542}
+      position: {x: -0.0020091035, y: -3.8613982e-18, z: 0.002067308}
       rotation: {x: 0.01606976, y: 0.21731171, z: -0.030571904, w: 0.97549105}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Ellbogen
       parentName: R_Schulter
-      position: {x: -0.025825448, y: 3.443851e-17, z: -3.1627052e-18}
+      position: {x: -0.005165091, y: 6.887703e-18, z: -6.32541e-19}
       rotation: {x: 0.0007972977, y: 0.012288256, z: -0.040408984, w: 0.9991074}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Hand
       parentName: R_Ellbogen
-      position: {x: -0.022559047, y: -8.017963e-18, z: -2.75205e-18}
+      position: {x: -0.00451181, y: -1.603593e-18, z: -5.504101e-19}
       rotation: {x: 0.0016850746, y: -0.01100104, z: -0.08234957, w: 0.9965414}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Finger
       parentName: R_Hand
-      position: {x: -0.012195508, y: -2.6808586e-17, z: -1.4055434e-18}
+      position: {x: -0.002439103, y: -5.3617186e-18, z: -2.8110875e-19}
       rotation: {x: -0.13724424, y: 0.9904074, z: -0.015829714, w: 0.0025716461}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Arm
       parentName: Brust
-      position: {x: -0.0028878087, y: -0.008348682, z: 0.004021465}
+      position: {x: -0.0005775617, y: -0.0016697367, z: 0.0008042932}
       rotation: {x: -0.17194581, y: 0.2068423, z: 0.6928677, w: 0.6690182}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Schulter
       parentName: L_Arm
-      position: {x: -0.007704588, y: -1.110223e-18, z: -0.010336542}
+      position: {x: -0.0015409177, y: -2.2204454e-19, z: -0.002067308}
       rotation: {x: -0.020873195, y: -0.28157905, z: -0.035577126, w: 0.95865107}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Ellbogen
       parentName: L_Schulter
-      position: {x: -0.027215289, y: 2.23553e-15, z: 0}
+      position: {x: -0.005443058, y: 4.471062e-16, z: 0}
       rotation: {x: 0, y: 0, z: 0.00000047553576, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Hand
       parentName: L_Ellbogen
-      position: {x: -0.023103904, y: -3.3731588e-18, z: 0}
+      position: {x: -0.0046207816, y: -6.746317e-19, z: 0}
       rotation: {x: 0, y: 0, z: 0.0000004672331, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Finger
       parentName: L_Hand
-      position: {x: -0.01227882, y: -1.8689995e-17, z: 0}
+      position: {x: -0.002455764, y: -3.7380002e-18, z: 0}
       rotation: {x: 0.0077058417, y: 0.0000949913, z: -0.012327764, w: 0.9998943}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Bein
       parentName: "h\xFCfte1"
-      position: {x: -0.0064477734, y: -0.0046968567, z: 0.00031802352}
+      position: {x: -0.0012895551, y: -0.00093937176, z: 0.00006360469}
       rotation: {x: 0.49166402, y: 0.4793615, z: 0.5179716, w: 0.51008284}
       scale: {x: 1, y: 1, z: 1}
     - name: L_KNie
       parentName: L_Bein
-      position: {x: -0.034735464, y: -5.689893e-18, z: -7.712822e-18}
+      position: {x: -0.0069470895, y: -1.1379781e-18, z: -1.5425637e-18}
       rotation: {x: -0.0002386215, y: -0.0046844087, z: -0.034604404, w: 0.9993901}
       scale: {x: 1, y: 1, z: 1}
     - name: "L_Fu\xDF"
       parentName: L_KNie
-      position: {x: -0.04693928, y: -0.0032562607, z: 0.00044061153}
+      position: {x: -0.009387862, y: -0.000651252, z: 0.00008812226}
       rotation: {x: 0, y: -0, z: -0.59255683, w: 0.80552864}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Zeh
       parentName: "L_Fu\xDF"
-      position: {x: -0.018494334, y: -1.110223e-18, z: -3.2366335e-18}
+      position: {x: -0.0036988684, y: -2.2204454e-19, z: -6.4732673e-19}
       rotation: {x: -0.10188491, y: -0.69972813, z: -0.10188491, w: 0.69972813}
       scale: {x: 1, y: 1, z: 1}
     - name: R_bein
       parentName: "h\xFCfte1"
-      position: {x: 0.0068656704, y: -0.006071178, z: 0.002753506}
+      position: {x: 0.0013731349, y: -0.0012142356, z: 0.0005507014}
       rotation: {x: 0.6925037, y: 0.72101843, z: 0.008286945, w: -0.022413228}
       scale: {x: 1, y: 1, z: 1}
     - name: R_knie
       parentName: R_bein
-      position: {x: -0.03664541, y: 1.4016566e-17, z: -4.487768e-18}
+      position: {x: -0.0073290793, y: 2.803313e-18, z: -8.975534e-19}
       rotation: {x: -0.000515137, y: -0.040215425, z: -0.004545714, w: 0.9991806}
       scale: {x: 1, y: 1, z: 1}
     - name: "R_fu\xDF"
       parentName: R_knie
-      position: {x: -0.04570291, y: -0.00041765033, z: 0.0036871254}
+      position: {x: -0.009140586, y: -0.000083530045, z: 0.0007374252}
       rotation: {x: -0.5462895, y: -0.46760333, z: -0.36309004, w: 0.59252053}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Zeh
       parentName: "R_fu\xDF"
-      position: {x: -0.018199217, y: -2.220446e-18, z: -5.4095267e-18}
+      position: {x: -0.0036398447, y: -4.440891e-19, z: -1.0819053e-18}
       rotation: {x: -0.09651571, y: -0.7004889, z: -0.09651571, w: 0.7004889}
       scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
@@ -458,7 +458,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.19999999
     rootMotionBoneName: "h\xFCfte1"
     hasTranslationDoF: 0
     hasExtraRoot: 1

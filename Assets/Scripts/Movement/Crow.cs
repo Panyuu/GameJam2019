@@ -11,14 +11,13 @@ public class Crow : MonoBehaviour
     // Stores Context of the InputSystem.
     private Vector2 _movementInput;
 
-    private float _speed;
+    public float _speed;
 
     public Camera docCam;
-    public GameObject doctor, crow;
+    public Doctor doctor;
 
     public void Awake() {
 
-        _speed = 15f;
         _controls = new InputManager();
 
         // Gets the context of the InputSystem and saves it in movementInput.
@@ -38,9 +37,9 @@ public class Crow : MonoBehaviour
     // used to disable crow mode.
     public void NormalMode() {
         docCam.enabled = true;
-        doctor.GetComponent<Doctor>().enabled = true;
+        doctor.enabled = true;
 
-        crow.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     // Enables InputSystem for the PlagueDoctor (used for crow).

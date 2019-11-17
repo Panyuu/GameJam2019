@@ -1,19 +1,10 @@
 ﻿using UnityEngine;
+[RequireComponent(typeof(SphereCollider))] 
 
 public class Human : MonoBehaviour {
-    public float currentratCountValue;
+    public float currentratCountValue, health, infectionMeter, satiation;
 
-    public float health;
-
-    public float infectionMeter;
-
-    public bool isDead;
-
-    public bool isInfected;
-
-    public bool ratIsClose, docIsClose;
-
-    public float satiation;
+    public bool isDead, isInfected, ratIsClose, docIsClose;
 
     public int ratsPlus;
 
