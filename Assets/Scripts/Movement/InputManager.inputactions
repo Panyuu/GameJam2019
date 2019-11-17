@@ -20,6 +20,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "CrowMode",
+                    "type": "Button",
+                    "id": "07acfcc9-5c4f-4c5c-82ea-5b162f63f178",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -147,11 +155,33 @@
                 {
                     "name": "",
                     "id": "b18a9e7d-d725-48bc-8ed0-6c143a4a034a",
-                    "path": "<XInputController>/buttonWest",
+                    "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
                     "action": "PickUpObject",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a78bdf2e-b902-498d-897b-25f41f10056b",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "CrowMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba0b382e-8824-4ad1-89bc-d7c6a399c7cb",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "CrowMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

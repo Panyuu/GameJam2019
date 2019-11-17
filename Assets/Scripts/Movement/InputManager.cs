@@ -34,6 +34,14 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""CrowMode"",
+                    ""type"": ""Button"",
+                    ""id"": ""07acfcc9-5c4f-4c5c-82ea-5b162f63f178"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -161,11 +169,33 @@ public class @InputManager : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b18a9e7d-d725-48bc-8ed0-6c143a4a034a"",
-                    ""path"": ""<XInputController>/buttonWest"",
+                    ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
                     ""action"": ""PickUpObject"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a78bdf2e-b902-498d-897b-25f41f10056b"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""CrowMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba0b382e-8824-4ad1-89bc-d7c6a399c7cb"",
+                    ""path"": ""<XInputController>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""CrowMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -329,9 +359,10 @@ public class @InputManager : IInputActionCollection, IDisposable
     ]
 }");
         // PlagueDoctor
-        _mPlagueDoctor = _asset.FindActionMap("PlagueDoctor", throwIfNotFound: true);
-        _mPlagueDoctorMovement = _mPlagueDoctor.FindAction("Movement", throwIfNotFound: true);
-        _mPlagueDoctorPickUpObject = _mPlagueDoctor.FindAction("PickUpObject", throwIfNotFound: true);
+        m_PlagueDoctor = asset.FindActionMap("PlagueDoctor", throwIfNotFound: true);
+        m_PlagueDoctor_Movement = m_PlagueDoctor.FindAction("Movement", throwIfNotFound: true);
+        m_PlagueDoctor_PickUpObject = m_PlagueDoctor.FindAction("PickUpObject", throwIfNotFound: true);
+        m_PlagueDoctor_CrowMode = m_PlagueDoctor.FindAction("CrowMode", throwIfNotFound: true);
         // Rat
         _mRat = _asset.FindActionMap("Rat", throwIfNotFound: true);
         _mRatMovement = _mRat.FindAction("Movement", throwIfNotFound: true);
@@ -382,17 +413,19 @@ public class @InputManager : IInputActionCollection, IDisposable
     }
 
     // PlagueDoctor
-    private readonly InputActionMap _mPlagueDoctor;
-    private IPlagueDoctorActions _mPlagueDoctorActionsCallbackInterface;
-    private readonly InputAction _mPlagueDoctorMovement;
-    private readonly InputAction _mPlagueDoctorPickUpObject;
+    private readonly InputActionMap m_PlagueDoctor;
+    private IPlagueDoctorActions m_PlagueDoctorActionsCallbackInterface;
+    private readonly InputAction m_PlagueDoctor_Movement;
+    private readonly InputAction m_PlagueDoctor_PickUpObject;
+    private readonly InputAction m_PlagueDoctor_CrowMode;
     public struct PlagueDoctorActions
     {
-        private @InputManager _mWrapper;
-        public PlagueDoctorActions(@InputManager wrapper) { _mWrapper = wrapper; }
-        public InputAction @Movement => _mWrapper._mPlagueDoctorMovement;
-        public InputAction @PickUpObject => _mWrapper._mPlagueDoctorPickUpObject;
-        public InputActionMap Get() { return _mWrapper._mPlagueDoctor; }
+        private @InputManager m_Wrapper;
+        public PlagueDoctorActions(@InputManager wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_PlagueDoctor_Movement;
+        public InputAction @PickUpObject => m_Wrapper.m_PlagueDoctor_PickUpObject;
+        public InputAction @CrowMode => m_Wrapper.m_PlagueDoctor_CrowMode;
+        public InputActionMap Get() { return m_Wrapper.m_PlagueDoctor; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool Enabled => Get().enabled;
@@ -401,12 +434,15 @@ public class @InputManager : IInputActionCollection, IDisposable
         {
             if (_mWrapper._mPlagueDoctorActionsCallbackInterface != null)
             {
-                @Movement.started -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnMovement;
-                @Movement.performed -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnMovement;
-                @PickUpObject.started -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnPickUpObject;
-                @PickUpObject.performed -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnPickUpObject;
-                @PickUpObject.canceled -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnPickUpObject;
+                @Movement.started -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnMovement;
+                @PickUpObject.started -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnPickUpObject;
+                @PickUpObject.performed -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnPickUpObject;
+                @PickUpObject.canceled -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnPickUpObject;
+                @CrowMode.started -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnCrowMode;
+                @CrowMode.performed -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnCrowMode;
+                @CrowMode.canceled -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnCrowMode;
             }
             _mWrapper._mPlagueDoctorActionsCallbackInterface = instance;
             if (instance != null)
@@ -417,6 +453,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @PickUpObject.started += instance.OnPickUpObject;
                 @PickUpObject.performed += instance.OnPickUpObject;
                 @PickUpObject.canceled += instance.OnPickUpObject;
+                @CrowMode.started += instance.OnCrowMode;
+                @CrowMode.performed += instance.OnCrowMode;
+                @CrowMode.canceled += instance.OnCrowMode;
             }
         }
     }
@@ -476,6 +515,7 @@ public class @InputManager : IInputActionCollection, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnPickUpObject(InputAction.CallbackContext context);
+        void OnCrowMode(InputAction.CallbackContext context);
     }
     public interface IRatActions
     {
