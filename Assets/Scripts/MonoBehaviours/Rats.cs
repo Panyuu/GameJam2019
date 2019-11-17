@@ -28,17 +28,17 @@ public class Rats : MonoBehaviour {
 
     private void Update()
     {
-        Debug.Log(_ratCount);
+        //Debug.Log(_ratCount);
 
         Hunger();
-        Debug.Log(satiation);
+        //Debug.Log(satiation);
     }
 
     private void OnTriggerStay(Collider other) {
         
         if(other.gameObject.CompareTag("Incense"))
         {
-            InsenceDamage();
+            IncenseDamage();
         }
         if (other.CompareTag("Human"))
         {
@@ -177,8 +177,9 @@ public class Rats : MonoBehaviour {
         }
     }
 
-    public void InsenceDamage()
+    public void IncenseDamage()
     {
-        _ratCount -= (int)(baseDamage * Time.deltaTime);
+        if (_ratCount < 1) return;
+        DeleteRats((int)(baseDamage + baseDamage * Time.deltaTime));
     }
 }
