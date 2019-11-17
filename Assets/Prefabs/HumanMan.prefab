@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1626566997}
   m_Layer: 0
   m_Name: HumanMan
-  m_TagString: Untagged
+  m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,12 +165,16 @@ MonoBehaviour:
   currentratCountValue: 0
   health: 0
   infectionMeter: 0
-  satiation: 0
+  satiation: 45
+  infectionMulti: 0.3
+  infectBase: 2
+  healthDrMulti: 0.3
+  healthDrBase: 2
   isDead: 0
   isInfected: 0
   ratIsClose: 0
   docIsClose: 0
-  ratsPlus: 0
+  ratsPlus: 50
 --- !u!54 &1626566997
 Rigidbody:
   m_ObjectHideFlags: 0

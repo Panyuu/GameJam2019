@@ -2,10 +2,9 @@
 [RequireComponent(typeof(SphereCollider))] 
 
 public class Human : MonoBehaviour {
-    public float currentratCountValue, health, infectionMeter, satiation;
+    public float currentratCountValue, health, infectionMeter, satiation, infectionMulti,infectBase, healthDrMulti, healthDrBase;
 
     public bool isDead, isInfected, ratIsClose, docIsClose;
-
     public int ratsPlus;
 
     private Animator _animator;
@@ -53,7 +52,7 @@ public class Human : MonoBehaviour {
         if (infectionMeter > 100)
             return;
 
-        infectionMeter += 10 * Time.deltaTime;
+        infectionMeter += (infectBase +  ratCount* infectionMulti )* Time.deltaTime;
 
         if (infectionMeter <= 100) {
             currentratCountValue = ratCount;
@@ -66,7 +65,7 @@ public class Human : MonoBehaviour {
 
     public void HealthDrain()
     {
-        health -= (80 + currentratCountValue * 0.25f) * Time.deltaTime;
+        health -= (healthDrBase + currentratCountValue * healthDrMulti) * Time.deltaTime;
         //Debug.Log("Health" + " : " + health);
     }
 }
