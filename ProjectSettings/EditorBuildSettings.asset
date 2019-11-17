@@ -5,16 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenuScreen.unity
     guid: 807381fce8f9ea443b7be79afffeff79
   - enabled: 1
     path: Assets/Scenes/Navmesh_test.unity
     guid: 8cd004ba873ec2c4098c9597f342235e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameOverRat.unity
     guid: bdde97375d725ad4284c5a3d250f6a3f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameOverDoctor.unity
     guid: 2e99d17cb1f88504fa9d066ff38080ac
   m_configObjects:

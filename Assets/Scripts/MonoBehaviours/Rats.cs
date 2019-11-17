@@ -25,7 +25,7 @@ public class Rats : MonoBehaviour {
     }
 
     private void OnTriggerStay(Collider other) {
-        if (other.gameObject.CompareTag("Incense")) InsenceDamage();
+        if (other.gameObject.CompareTag("Incense")) IncenseDamage();
         if (other.CompareTag("Human")) {
             var human = other.GetComponent<Human>();
 
@@ -136,7 +136,7 @@ public class Rats : MonoBehaviour {
 
     public void IncenseDamage()
     {
-        if (_ratCount < 1) return;
+        if (ratCount < 1) return;
         DeleteRats((int)(baseDamage + baseDamage * Time.deltaTime));
     }
 }

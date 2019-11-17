@@ -150,9 +150,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3921db5ed527f4e8eaba846c01fa8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swarmRats: {fileID: 0}
+  hungerMulti: 3
+  infectionMulti: 0.2
+  baseDamage: 1
+  dashMulti: 10
+  isDashing: 0
+  ratCount: 0
   ratPrefab: {fileID: 5226595217169726762, guid: 04a6cbae1b698844e8f800b0797360fd,
     type: 3}
+  satiation: 0
 --- !u!114 &9204252182408683704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,9 +171,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 292a6e87132a6ba4dad3cd0e32c14b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 9
-  _dash: 20
-  _currentSpeed: 9
+  speed: 9
+  dash: 20
+  currentSpeed: 9
+  dashSatiation: 0
+  skills: {fileID: 0}
 --- !u!54 &9204252182408683706
 Rigidbody:
   m_ObjectHideFlags: 0
