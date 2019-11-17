@@ -41,6 +41,14 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ShowControls"",
+                    ""type"": ""Button"",
+                    ""id"": ""1fc8a895-0941-489a-98fe-3cdf77d28bf4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -197,6 +205,17 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""action"": ""CrowMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ddabb74-d437-4b3f-b003-c3650661f0ab"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""ShowControls"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -216,6 +235,14 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""name"": ""Dash"",
                     ""type"": ""Button"",
                     ""id"": ""c95f0de5-9a31-4c80-8d5c-ccb28337ceeb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ShowControls"",
+                    ""type"": ""Button"",
+                    ""id"": ""d45e6249-746c-4058-8368-0af5a6b17b07"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -353,6 +380,63 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b12462a-fc11-466f-8c78-9d0553bb030a"",
+                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""ShowControls"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""44f664d1-6592-4c0b-8253-53a4f2881445"",
+            ""actions"": [
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""7ea677ad-b7bf-4462-8906-4f89e5c3a700"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""e5d1c55b-f7b8-4e76-a0e8-723bf6b4b7cd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""f7e0038f-fdb9-40b4-af2d-40d1d56fb1db"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""52eb254a-0ae1-46a7-a622-aa34eb0fc201"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -388,14 +472,20 @@ public class @InputManager : IInputActionCollection, IDisposable
     ]
 }");
         // PlagueDoctor
-        _mPlagueDoctor = _asset.FindActionMap("PlagueDoctor", throwIfNotFound: true);
-        _mPlagueDoctorMovement = _mPlagueDoctor.FindAction("Movement", throwIfNotFound: true);
-        _mPlagueDoctorPickUpObject = _mPlagueDoctor.FindAction("PickUpObject", throwIfNotFound: true);
-        _mPlagueDoctorCrowMode = _mPlagueDoctor.FindAction("CrowMode", throwIfNotFound: true);
+        m_PlagueDoctor = asset.FindActionMap("PlagueDoctor", throwIfNotFound: true);
+        m_PlagueDoctor_Movement = m_PlagueDoctor.FindAction("Movement", throwIfNotFound: true);
+        m_PlagueDoctor_PickUpObject = m_PlagueDoctor.FindAction("PickUpObject", throwIfNotFound: true);
+        m_PlagueDoctor_CrowMode = m_PlagueDoctor.FindAction("CrowMode", throwIfNotFound: true);
+        m_PlagueDoctor_ShowControls = m_PlagueDoctor.FindAction("ShowControls", throwIfNotFound: true);
         // Rat
-        _mRat = _asset.FindActionMap("Rat", throwIfNotFound: true);
-        _mRatMovement = _mRat.FindAction("Movement", throwIfNotFound: true);
-        _mRatDash = _mRat.FindAction("Dash", throwIfNotFound: true);
+        m_Rat = asset.FindActionMap("Rat", throwIfNotFound: true);
+        m_Rat_Movement = m_Rat.FindAction("Movement", throwIfNotFound: true);
+        m_Rat_Dash = m_Rat.FindAction("Dash", throwIfNotFound: true);
+        m_Rat_ShowControls = m_Rat.FindAction("ShowControls", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_Start = m_Menu.FindAction("Start", throwIfNotFound: true);
+        m_Menu_Quit = m_Menu.FindAction("Quit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -443,19 +533,21 @@ public class @InputManager : IInputActionCollection, IDisposable
     }
 
     // PlagueDoctor
-    private readonly InputActionMap _mPlagueDoctor;
-    private IPlagueDoctorActions _mPlagueDoctorActionsCallbackInterface;
-    private readonly InputAction _mPlagueDoctorMovement;
-    private readonly InputAction _mPlagueDoctorPickUpObject;
-    private readonly InputAction _mPlagueDoctorCrowMode;
+    private readonly InputActionMap m_PlagueDoctor;
+    private IPlagueDoctorActions m_PlagueDoctorActionsCallbackInterface;
+    private readonly InputAction m_PlagueDoctor_Movement;
+    private readonly InputAction m_PlagueDoctor_PickUpObject;
+    private readonly InputAction m_PlagueDoctor_CrowMode;
+    private readonly InputAction m_PlagueDoctor_ShowControls;
     public struct PlagueDoctorActions
     {
-        private @InputManager _mWrapper;
-        public PlagueDoctorActions(@InputManager wrapper) { _mWrapper = wrapper; }
-        public InputAction @Movement => _mWrapper._mPlagueDoctorMovement;
-        public InputAction @PickUpObject => _mWrapper._mPlagueDoctorPickUpObject;
-        public InputAction @CrowMode => _mWrapper._mPlagueDoctorCrowMode;
-        public InputActionMap Get() { return _mWrapper._mPlagueDoctor; }
+        private @InputManager m_Wrapper;
+        public PlagueDoctorActions(@InputManager wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_PlagueDoctor_Movement;
+        public InputAction @PickUpObject => m_Wrapper.m_PlagueDoctor_PickUpObject;
+        public InputAction @CrowMode => m_Wrapper.m_PlagueDoctor_CrowMode;
+        public InputAction @ShowControls => m_Wrapper.m_PlagueDoctor_ShowControls;
+        public InputActionMap Get() { return m_Wrapper.m_PlagueDoctor; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool Enabled => Get().enabled;
@@ -464,15 +556,18 @@ public class @InputManager : IInputActionCollection, IDisposable
         {
             if (_mWrapper._mPlagueDoctorActionsCallbackInterface != null)
             {
-                @Movement.started -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnMovement;
-                @Movement.performed -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnMovement;
-                @PickUpObject.started -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnPickUpObject;
-                @PickUpObject.performed -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnPickUpObject;
-                @PickUpObject.canceled -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnPickUpObject;
-                @CrowMode.started -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnCrowMode;
-                @CrowMode.performed -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnCrowMode;
-                @CrowMode.canceled -= _mWrapper._mPlagueDoctorActionsCallbackInterface.OnCrowMode;
+                @Movement.started -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnMovement;
+                @PickUpObject.started -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnPickUpObject;
+                @PickUpObject.performed -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnPickUpObject;
+                @PickUpObject.canceled -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnPickUpObject;
+                @CrowMode.started -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnCrowMode;
+                @CrowMode.performed -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnCrowMode;
+                @CrowMode.canceled -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnCrowMode;
+                @ShowControls.started -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnShowControls;
+                @ShowControls.performed -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnShowControls;
+                @ShowControls.canceled -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnShowControls;
             }
             _mWrapper._mPlagueDoctorActionsCallbackInterface = instance;
             if (instance != null)
@@ -486,23 +581,28 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @CrowMode.started += instance.OnCrowMode;
                 @CrowMode.performed += instance.OnCrowMode;
                 @CrowMode.canceled += instance.OnCrowMode;
+                @ShowControls.started += instance.OnShowControls;
+                @ShowControls.performed += instance.OnShowControls;
+                @ShowControls.canceled += instance.OnShowControls;
             }
         }
     }
     public PlagueDoctorActions @PlagueDoctor => new PlagueDoctorActions(this);
 
     // Rat
-    private readonly InputActionMap _mRat;
-    private IRatActions _mRatActionsCallbackInterface;
-    private readonly InputAction _mRatMovement;
-    private readonly InputAction _mRatDash;
+    private readonly InputActionMap m_Rat;
+    private IRatActions m_RatActionsCallbackInterface;
+    private readonly InputAction m_Rat_Movement;
+    private readonly InputAction m_Rat_Dash;
+    private readonly InputAction m_Rat_ShowControls;
     public struct RatActions
     {
-        private @InputManager _mWrapper;
-        public RatActions(@InputManager wrapper) { _mWrapper = wrapper; }
-        public InputAction @Movement => _mWrapper._mRatMovement;
-        public InputAction @Dash => _mWrapper._mRatDash;
-        public InputActionMap Get() { return _mWrapper._mRat; }
+        private @InputManager m_Wrapper;
+        public RatActions(@InputManager wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Rat_Movement;
+        public InputAction @Dash => m_Wrapper.m_Rat_Dash;
+        public InputAction @ShowControls => m_Wrapper.m_Rat_ShowControls;
+        public InputActionMap Get() { return m_Wrapper.m_Rat; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool Enabled => Get().enabled;
@@ -511,12 +611,15 @@ public class @InputManager : IInputActionCollection, IDisposable
         {
             if (_mWrapper._mRatActionsCallbackInterface != null)
             {
-                @Movement.started -= _mWrapper._mRatActionsCallbackInterface.OnMovement;
-                @Movement.performed -= _mWrapper._mRatActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= _mWrapper._mRatActionsCallbackInterface.OnMovement;
-                @Dash.started -= _mWrapper._mRatActionsCallbackInterface.OnDash;
-                @Dash.performed -= _mWrapper._mRatActionsCallbackInterface.OnDash;
-                @Dash.canceled -= _mWrapper._mRatActionsCallbackInterface.OnDash;
+                @Movement.started -= m_Wrapper.m_RatActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_RatActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_RatActionsCallbackInterface.OnMovement;
+                @Dash.started -= m_Wrapper.m_RatActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_RatActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_RatActionsCallbackInterface.OnDash;
+                @ShowControls.started -= m_Wrapper.m_RatActionsCallbackInterface.OnShowControls;
+                @ShowControls.performed -= m_Wrapper.m_RatActionsCallbackInterface.OnShowControls;
+                @ShowControls.canceled -= m_Wrapper.m_RatActionsCallbackInterface.OnShowControls;
             }
             _mWrapper._mRatActionsCallbackInterface = instance;
             if (instance != null)
@@ -527,11 +630,55 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @ShowControls.started += instance.OnShowControls;
+                @ShowControls.performed += instance.OnShowControls;
+                @ShowControls.canceled += instance.OnShowControls;
             }
         }
     }
     public RatActions @Rat => new RatActions(this);
-    private int _mKeyboardMouseSchemeIndex = -1;
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_Start;
+    private readonly InputAction m_Menu_Quit;
+    public struct MenuActions
+    {
+        private @InputManager m_Wrapper;
+        public MenuActions(@InputManager wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Start => m_Wrapper.m_Menu_Start;
+        public InputAction @Quit => m_Wrapper.m_Menu_Quit;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @Start.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnStart;
+                @Start.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnStart;
+                @Start.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnStart;
+                @Quit.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnQuit;
+                @Quit.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnQuit;
+                @Quit.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnQuit;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Start.started += instance.OnStart;
+                @Start.performed += instance.OnStart;
+                @Start.canceled += instance.OnStart;
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
+    private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
         get
@@ -554,10 +701,17 @@ public class @InputManager : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnPickUpObject(InputAction.CallbackContext context);
         void OnCrowMode(InputAction.CallbackContext context);
+        void OnShowControls(InputAction.CallbackContext context);
     }
     public interface IRatActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnShowControls(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnStart(InputAction.CallbackContext context);
+        void OnQuit(InputAction.CallbackContext context);
     }
 }

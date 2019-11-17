@@ -28,6 +28,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ShowControls",
+                    "type": "Button",
+                    "id": "1fc8a895-0941-489a-98fe-3cdf77d28bf4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -184,6 +192,17 @@
                     "action": "CrowMode",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ddabb74-d437-4b3f-b003-c3650661f0ab",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "ShowControls",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -203,6 +222,14 @@
                     "name": "Dash",
                     "type": "Button",
                     "id": "c95f0de5-9a31-4c80-8d5c-ccb28337ceeb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ShowControls",
+                    "type": "Button",
+                    "id": "d45e6249-746c-4058-8368-0af5a6b17b07",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -338,6 +365,63 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b12462a-fc11-466f-8c78-9d0553bb030a",
+                    "path": "<Keyboard>/rightCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "ShowControls",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Menu",
+            "id": "44f664d1-6592-4c0b-8253-53a4f2881445",
+            "actions": [
+                {
+                    "name": "Start",
+                    "type": "Button",
+                    "id": "7ea677ad-b7bf-4462-8906-4f89e5c3a700",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Quit",
+                    "type": "Button",
+                    "id": "e5d1c55b-f7b8-4e76-a0e8-723bf6b4b7cd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f7e0038f-fdb9-40b4-af2d-40d1d56fb1db",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "52eb254a-0ae1-46a7-a622-aa34eb0fc201",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Quit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

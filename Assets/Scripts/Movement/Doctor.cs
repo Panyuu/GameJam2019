@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class Doctor : MonoBehaviour {
     // Creates Instance of InputManager class.
@@ -19,13 +20,21 @@ public class Doctor : MonoBehaviour {
     private GameObject _incense;
 
     // Used for PickUp and crowMode functions.
-    public Camera docCam;
-    public GameObject crow;
+    public Camera _docCam;
+    public GameObject _crow;
+
+    public Image _plagueDoctorImage, _crowImage;
+    public Sprite _crowIcon, _greyDocIcon;
+
+    public Text _skills;
+    private string _docControls;
+    private bool _controlsShown;
 
     public void Awake() {
 
         _insideTrigger = false;
         _incenseCarried = false;
+        _controlsShown = false;
 
         _controls = new InputManager();
 
@@ -38,6 +47,8 @@ public class Doctor : MonoBehaviour {
         _animator = GetComponent<Animator>();
 
         _controls.PlagueDoctor.CrowMode.performed += _ => CrowMode();
+
+        _controls.PlagueDoctor.ShowControls.performed += _ => ShowControl();
     }
 
     public void Update() {
@@ -100,13 +111,31 @@ public class Doctor : MonoBehaviour {
     // Used to activate crowMode.
     private void CrowMode() {
 
-        crow.SetActive(true);
-        docCam.enabled = false;
+        _crow.SetActive(true);
+        _docCam.enabled = false;
 
-        crow.transform.position = new Vector3(transform.position.x, 40, transform.position.z);
-        crow.transform.rotation = Quaternion.Euler(new Vector3(80, 0, 0));
+        _crow.transform.position = new Vector3(transform.position.x, 40, transform.position.z);
+        _crow.transform.rotation = Quaternion.Euler(new Vector3(80, 0, 0));
+
+        _plagueDoctorImage.sprite = _greyDocIcon;
+        _crowImage.sprite = _crowIcon;
 
         enabled = false;
+    }
+
+    // Enables the text field with the controls.
+    private void ShowControl() {
+
+        if (!_controlsShown) {
+
+            _skills.text = "Skills Doctor: WASD: Walk\nQ: Crow Mode\nE: Pick Up/ Put Down Incense\nStand beside Human: Heal";
+            _controlsShown = true;
+        }
+        else if (_controlsShown) {
+
+            _skills.text = "Press 1 to show controls";
+            _controlsShown = false;
+        }
     }
 
     // Enables the InputSystem for PlagueDoctor.

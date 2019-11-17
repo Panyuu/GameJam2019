@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 using UnityEngine.Serialization;
 
 public class Rat : MonoBehaviour {
@@ -15,7 +16,14 @@ public class Rat : MonoBehaviour {
     [FormerlySerializedAs("DashSatiation")] public float dashSatiation;
     private Rats _rats;
     private NavMeshAgent _agent;
+
+    private bool _controlsShown;
+    public Text _skills;
+
     public void Awake() {
+
+        _controlsShown = false;
+
         _controls = new InputManager();
         _rats = GetComponent<Rats>();
         // Gets the context of the InputSystem and saves it in movementInput.
@@ -24,7 +32,8 @@ public class Rat : MonoBehaviour {
 
         _controls.Rat.Dash.started += ctx => Dash(true);
         _controls.Rat.Dash.canceled += ctx => Dash(false);
-        
+
+        _controls.Rat.ShowControls.performed += ctx => ShowControl();
     }
 
     public void Update() {
@@ -41,6 +50,21 @@ public class Rat : MonoBehaviour {
         currentSpeed = isPressed ? dash : speed;
         _rats.isDashing = isPressed;
         
+    }
+
+    // Shows controls of rats.
+    private void ShowControl() {
+
+        if (!_controlsShown) {
+
+            _skills.text = "Skills Rat: Arrow Keys: Walk\nSpace: Dash\nWalk through Food: eating\nStand beside Human: infect and kill";
+            _controlsShown = true;
+        }
+        else if (_controlsShown) {
+
+            _skills.text = "Press Strg to show controls";
+            _controlsShown = false;
+        }
     }
 
     // Enables InputSystem for the Rats.
