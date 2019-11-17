@@ -8,11 +8,11 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Ground
-  m_Shader: {fileID: -6465566751694194690, guid: fa22698b04cb4d745b2586a772ac5a6c,
+  m_Shader: {fileID: -6465566751694194690, guid: e069dce03fcb6a04189dd96f5d45192a,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -20,10 +20,24 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_440B2562:
+        m_Texture: {fileID: 2800000, guid: 75a50094030ad6a4bbc8d0d9894cc9e5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Texture2D_6186ED31:
         m_Texture: {fileID: 2800000, guid: 6012eb8969fe80d418803c2d635e7f66, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - Texture2D_EC89BC8A:
+        m_Texture: {fileID: 2800000, guid: 6012eb8969fe80d418803c2d635e7f66, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_187713AD: 1
+    - Vector1_2C64FC91: 2.63
+    - Vector1_2D7FC466: 0
     - Vector1_4666B244: 0.69
-    m_Colors: []
+    - Vector1_4FB9F475: 0
+    m_Colors:
+    - Color_1D40B0D3: {r: 1, g: 1, b: 1, a: 1}
+    - Color_82A4A284: {r: 1, g: 1, b: 1, a: 1}

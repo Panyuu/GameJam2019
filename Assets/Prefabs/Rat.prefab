@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2251444635987780842}
   - component: {fileID: 392206613832512457}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1178186846382481987}
   - component: {fileID: 4988736815705683117}
   - component: {fileID: 573794527045646838}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
