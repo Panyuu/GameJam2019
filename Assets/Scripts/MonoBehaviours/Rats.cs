@@ -11,13 +11,13 @@ public class Rats : MonoBehaviour {
     
     private readonly Queue<GameObject> _ratObjectQueue = new Queue<GameObject>();
 
-    int _ratCount;
     public float hungerMulti, infectionMulti, baseDamage, dashMulti;
+    public int ratCount;
     public GameObject ratPrefab;
     public bool isDashing;
 
     // Update is called once per frame
-    private void Start()
+    private void Awake()
     {
         RatFollow.Mainrat = transform;
         satiation = 50;

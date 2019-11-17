@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
-    public int maxPlayTime;
+    public int maxPlayTime = 600;
     string minutes, seconds;
     public Text text;
 
@@ -30,10 +30,5 @@ public class Timer : MonoBehaviour {
         //}
 
         text.text = minutes + " : " + seconds;
-
-        if (maxPlayTime / 60 == 0 && maxPlayTime % 60 == 0) {
-
-            SceneManager.LoadScene(1);
-        }
     }
 }
