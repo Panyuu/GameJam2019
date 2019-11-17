@@ -14,7 +14,7 @@ public class Timer : MonoBehaviour {
 
         maxPlayTime = 600 - (int)Time.time;
 
-        minutes = (maxPlayTime/60 < 10) ? " " + maxPlayTime / 60 : "" + maxPlayTime / 60;
+        minutes = (maxPlayTime/60 < 10) ? "" + maxPlayTime / 60 : "" + maxPlayTime / 60;
         seconds = (maxPlayTime%60 < 10) ? "0" + maxPlayTime % 60 : "" + maxPlayTime % 60;
 
         //if (seconds == 0) {
