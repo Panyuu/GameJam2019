@@ -166,9 +166,9 @@ MonoBehaviour:
   health: 0
   infectionMeter: 0
   satiation: 45
-  infectionMulti: 0.1
+  infectionMulti: 0.3
   infectBase: 2
-  healthDrMulti: 0.1
+  healthDrMulti: 0.3
   healthDrBase: 2
   isDead: 0
   isInfected: 0

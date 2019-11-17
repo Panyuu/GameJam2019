@@ -4,23 +4,23 @@ using UnityEngine.AI;
 public class Rat : MonoBehaviour {
     // Creates Instance of InputManager class.
     private InputManager _controls;
-
+  
     // Stores Context of the InputSystem.
     private Vector2 _movementInput;
 
-    public float _speed, _dash, _currentSpeed;
-
+    public float _speed, _dash, _currentSpeed, DashSatiation;
+    private Rats rats;
     private NavMeshAgent _agent;
-
     public void Awake() {
         _controls = new InputManager();
-
+        rats = GetComponent<Rats>();
         // Gets the context of the InputSystem and saves it in movementInput.
         _controls.Rat.Movement.performed += ctx => _movementInput = ctx.ReadValue<Vector2>();
         _agent = GetComponent<NavMeshAgent>();
 
         _controls.Rat.Dash.started += ctx => Dash(true);
         _controls.Rat.Dash.canceled += ctx => Dash(false);
+        
     }
 
     public void Update() {
@@ -35,6 +35,8 @@ public class Rat : MonoBehaviour {
     public void Dash(bool isPressed) {
 
         _currentSpeed = isPressed ? _dash : _speed;
+        rats.isDashing = isPressed;
+        
     }
 
     // Enables InputSystem for the Rats.

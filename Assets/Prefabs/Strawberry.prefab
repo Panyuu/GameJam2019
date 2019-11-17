@@ -62,9 +62,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ea00e2d11dcd9498170c5ddcbe315d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  satiation: 4
-  ratsPlus: 5
-  RespawnTimer: 25
+  satiation: 10
+  ratsPlus: 2
+  RespawnTimer: 15
 --- !u!136 &3415049711104366303
 CapsuleCollider:
   m_ObjectHideFlags: 0

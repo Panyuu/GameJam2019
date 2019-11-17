@@ -7,15 +7,15 @@ using Random = UnityEngine.Random;
 
 public class Rats : MonoBehaviour {
 
-    private float _satiation;
-
-    public GameObject swarmRats;
+    public float _satiation;
+    
     private readonly Queue<GameObject> _ratObjectQueue = new Queue<GameObject>();
 
     int ratCount;
-    public float hungerMulti, infectionMulti, baseDamage;
+    public float hungerMulti, infectionMulti, baseDamage, dashMulti;
     public GameObject ratPrefab;
-    
+    public bool isDashing;
+
     // Update is called once per frame
     private void Start()
     {
@@ -105,7 +105,8 @@ public class Rats : MonoBehaviour {
 
     public void Hunger()
     {
-        _satiation -=  hungerMulti * Time.deltaTime;
+
+        _satiation -=  (isDashing?dashMulti:hungerMulti) * Time.deltaTime;
         _satiation = Mathf.Clamp(_satiation, -100, 1000);
     }
     public IEnumerator Decay()
