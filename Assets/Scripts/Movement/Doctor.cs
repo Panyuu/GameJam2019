@@ -20,13 +20,15 @@ public class Doctor : MonoBehaviour {
     private GameObject _incense;
 
     // Used for PickUp and crowMode functions.
-    public Camera _docCam;
-    public GameObject _crow;
+    [FormerlySerializedAs("_docCam")] public Camera docCam;
+    [FormerlySerializedAs("_crow")] public GameObject crow;
 
-    public Image _plagueDoctorImage, _crowImage;
-    public Sprite _crowIcon, _greyDocIcon;
+    [FormerlySerializedAs("_plagueDoctorImage")] public Image plagueDoctorImage;
+    [FormerlySerializedAs("_crowImage")] public Image crowImage;
+    [FormerlySerializedAs("_crowIcon")] public Sprite crowIcon;
+    [FormerlySerializedAs("_greyDocIcon")] public Sprite greyDocIcon;
 
-    public Text _skills;
+    [FormerlySerializedAs("_skills")] public Text skills;
     private string _docControls;
     private bool _controlsShown;
 
@@ -111,14 +113,14 @@ public class Doctor : MonoBehaviour {
     // Used to activate crowMode.
     private void CrowMode() {
 
-        _crow.SetActive(true);
-        _docCam.enabled = false;
+        crow.SetActive(true);
+        docCam.enabled = false;
 
-        _crow.transform.position = new Vector3(transform.position.x, 40, transform.position.z);
-        _crow.transform.rotation = Quaternion.Euler(new Vector3(80, 0, 0));
+        crow.transform.position = new Vector3(transform.position.x, 40, transform.position.z);
+        crow.transform.rotation = Quaternion.Euler(new Vector3(80, 0, 0));
 
-        _plagueDoctorImage.sprite = _greyDocIcon;
-        _crowImage.sprite = _crowIcon;
+        plagueDoctorImage.sprite = greyDocIcon;
+        crowImage.sprite = crowIcon;
 
         enabled = false;
     }
@@ -128,12 +130,12 @@ public class Doctor : MonoBehaviour {
 
         if (!_controlsShown) {
 
-            _skills.text = "Skills Doctor: WASD: Walk\nQ: Crow Mode\nE: Pick Up/ Put Down Incense\nStand beside Human: Heal";
+            skills.text = "Skills Doctor: WASD: Walk\nQ: Crow Mode\nE: Pick Up/ Put Down Incense\nStand beside Human: Heal";
             _controlsShown = true;
         }
         else if (_controlsShown) {
 
-            _skills.text = "Press 1 to show controls";
+            skills.text = "Press 1 to show controls";
             _controlsShown = false;
         }
     }

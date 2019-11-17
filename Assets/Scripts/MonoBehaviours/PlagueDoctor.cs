@@ -57,7 +57,7 @@ public class PlagueDoctor : MonoBehaviour {
     }
 
     // For da delay.
-    IEnumerator ResetInfectionMeter(Collider other) {
+    private IEnumerator ResetInfectionMeter(Collider other) {
 
         var human = other.GetComponent<Human>();
 
@@ -73,12 +73,12 @@ public class PlagueDoctor : MonoBehaviour {
 
 
     // to modify the waitForNonInfection variable.
-    int GetWaitForNonInfection() {
+    private int GetWaitForNonInfection() {
 
         return _waitForNonInfection;
     }
 
-    void SetWaitForNonInfection(int wait) {
+    private void SetWaitForNonInfection(int wait) {
 
         _waitForNonInfection = wait;
     }

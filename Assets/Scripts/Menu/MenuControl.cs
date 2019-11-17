@@ -1,27 +1,26 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class MenuControl : MonoBehaviour
 {
-    InputManager _controls;
+    private InputManager _controls;
 
     private void Awake() {
 
         _controls = new InputManager();
 
-        _controls.Menu.Start.performed += ctx => startGame();
-        _controls.Menu.Quit.performed += ctx => quitGame();
+        _controls.Menu.Start.performed += ctx => StartGame();
+        _controls.Menu.Quit.performed += ctx => QuitGame();
     }
 
     // Open next scene.
-    private void startGame() {
+    private void StartGame() {
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     // Quit Game.
-    private void quitGame() {
+    private void QuitGame() {
 
         Application.Quit();
     }

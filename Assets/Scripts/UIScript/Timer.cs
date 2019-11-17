@@ -1,21 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
     public int maxPlayTime = 600;
-    string minutes, seconds;
+    private string _minutes, _seconds;
     public Text text;
 
     private void Update() {
 
         maxPlayTime = 600 - (int)Time.time;
 
-        minutes = (maxPlayTime/60 < 10) ? "" + maxPlayTime / 60 : "" + maxPlayTime / 60;
-        seconds = (maxPlayTime%60 < 10) ? "0" + maxPlayTime % 60 : "" + maxPlayTime % 60;
+        _minutes = maxPlayTime/60 < 10 ? "" + maxPlayTime / 60 : "" + maxPlayTime / 60;
+        _seconds = maxPlayTime%60 < 10 ? "0" + maxPlayTime % 60 : "" + maxPlayTime % 60;
 
         //if (seconds == 0) {
         //    timer = minutes + " : " + seconds + "0";
@@ -29,6 +26,6 @@ public class Timer : MonoBehaviour {
         //    timer = minutes + " : " + seconds;
         //}
 
-        text.text = minutes + " : " + seconds;
+        text.text = _minutes + " : " + _seconds;
     }
 }

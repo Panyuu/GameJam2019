@@ -18,7 +18,7 @@ public class Rat : MonoBehaviour {
     private NavMeshAgent _agent;
 
     private bool _controlsShown;
-    public Text _skills;
+    [FormerlySerializedAs("_skills")] public Text skills;
 
     public void Awake() {
 
@@ -57,12 +57,12 @@ public class Rat : MonoBehaviour {
 
         if (!_controlsShown) {
 
-            _skills.text = "Skills Rat: Arrow Keys: Walk\nSpace: Dash\nWalk through Food: eating\nStand beside Human: infect and kill";
+            skills.text = "Skills Rat: Arrow Keys: Walk\nSpace: Dash\nWalk through Food: eating\nStand beside Human: infect and kill";
             _controlsShown = true;
         }
         else if (_controlsShown) {
 
-            _skills.text = "Press Strg to show controls";
+            skills.text = "Press Strg to show controls";
             _controlsShown = false;
         }
     }
