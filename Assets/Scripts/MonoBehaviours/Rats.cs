@@ -13,9 +13,9 @@ public class Rats : MonoBehaviour {
     private readonly Queue<GameObject> _ratObjectQueue = new Queue<GameObject>();
 
     int ratCount;
-
+    public float hungerMulti, infectionMulti, baseDamage;
     public GameObject ratPrefab;
-
+    
     // Update is called once per frame
     private void Start()
     {
@@ -23,6 +23,7 @@ public class Rats : MonoBehaviour {
         _satiation = 50;
         ratCount = 1;
         StartCoroutine(Decay());
+        
     }
 
     private void Update()
@@ -30,14 +31,24 @@ public class Rats : MonoBehaviour {
         Debug.Log(ratCount);
 
         Hunger();
+        Debug.Log(_satiation);
     }
 
     private void OnTriggerStay(Collider other) {
-        var human = other.GetComponent<Human>();
+        
+        if(other.gameObject.CompareTag("Incense"))
+        {
+            InsenceDamage();
+        }
+        if (other.CompareTag("Human"))
+        {
+            var human = other.GetComponent<Human>();
 
-        if (!human) return;
+            if (!human) return;
 
-        human.Infect(ratCount);
+            human.Infect(ratCount);
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -94,7 +105,7 @@ public class Rats : MonoBehaviour {
 
     public void Hunger()
     {
-        _satiation -=  3 * Time.deltaTime;
+        _satiation -=  hungerMulti * Time.deltaTime;
         _satiation = Mathf.Clamp(_satiation, -100, 1000);
     }
     public IEnumerator Decay()
@@ -113,10 +124,9 @@ public class Rats : MonoBehaviour {
             var insideUnitCircle = Random.insideUnitCircle * 5;
             var mainRat = gameObject;
             var position = mainRat.transform.position;
-            position += new Vector3(insideUnitCircle.x, 0, insideUnitCircle.y);
-            mainRat.transform.position = position;
+           
 
-            var mainratposition = position;
+            var mainratposition = position + new Vector3(insideUnitCircle.x, 0, insideUnitCircle.y);
             var newRat = Instantiate(ratPrefab, mainratposition, Random.rotation);
 
             newRat.gameObject.AddComponent<RatFollow>();
@@ -133,8 +143,14 @@ public class Rats : MonoBehaviour {
         {
             if (_ratObjectQueue.Count > 0)
             {
+                ratCount--;
                 Destroy(_ratObjectQueue.Dequeue());
             }
         }
+    }
+
+    public void InsenceDamage()
+    {
+        ratCount -= (int)(baseDamage * Time.deltaTime);
     }
 }
