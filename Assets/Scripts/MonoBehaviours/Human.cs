@@ -13,6 +13,14 @@ public class Human : MonoBehaviour {
 
     public bool ratIsClose, docIsClose;
 
+    public bool ratIsClose;
+
+    public float currentratCountValue;
+
+    public float satiation;
+
+    public int ratsPlus;
+
     // Start is called before the first frame update
     private void Start() {
         health = 100;
@@ -25,7 +33,7 @@ public class Human : MonoBehaviour {
     private void Update() {
         if (!ratIsClose && infectionMeter >= 0 && infectionMeter <= 100) {
             Debug.Log("InfectionMeter decay" + ": " + infectionMeter);
-            //infectionMeter -= 10 * Rats. * Time.deltaTime;
+            infectionMeter -= 70 * Time.deltaTime;
         }
 
         if (!docIsClose && isInfected && health >= 0) HealthDrain();
@@ -35,14 +43,18 @@ public class Human : MonoBehaviour {
         if (isDead) gameObject.GetComponent<SphereCollider>().radius = 1;
     }
 
-    public int Consume() {
+    public Vector2 Consume()
+    {
+        Vector2 consumeGain = new Vector2(satiation, ratsPlus);
         Destroy(gameObject);
 
-        return 1;
+        return consumeGain;
     }
 
-    public void Infect(float ratCount) {
-        Debug.Log("InfectionMeter" + " : " + infectionMeter);
+    public void Infect(float ratCount)
+    {
+
+        //Debug.Log("InfectionMeter" + " : " + infectionMeter);
 
         if (health <= 0)
 
@@ -61,8 +73,9 @@ public class Human : MonoBehaviour {
         isInfected = true;
     }
 
-    public void HealthDrain() {
-        health -= (5 + currentratCountValue * 0.25f) * Time.deltaTime;
-        Debug.Log("Health" + " : " + health);
+    public void HealthDrain()
+    {
+        health -= (80 + currentratCountValue * 0.25f) * Time.deltaTime;
+        //Debug.Log("Health" + " : " + health);
     }
 }
