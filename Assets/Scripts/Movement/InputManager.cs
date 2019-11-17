@@ -211,6 +211,14 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""c95f0de5-9a31-4c80-8d5c-ccb28337ceeb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -323,6 +331,28 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ecf49a7-46d6-4325-ac1b-17ef3368ad7c"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da8e5107-962e-414b-bf0a-2bf7a3cfad65"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -365,6 +395,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         // Rat
         m_Rat = asset.FindActionMap("Rat", throwIfNotFound: true);
         m_Rat_Movement = m_Rat.FindAction("Movement", throwIfNotFound: true);
+        m_Rat_Dash = m_Rat.FindAction("Dash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -464,11 +495,13 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Rat;
     private IRatActions m_RatActionsCallbackInterface;
     private readonly InputAction m_Rat_Movement;
+    private readonly InputAction m_Rat_Dash;
     public struct RatActions
     {
         private @InputManager m_Wrapper;
         public RatActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Rat_Movement;
+        public InputAction @Dash => m_Wrapper.m_Rat_Dash;
         public InputActionMap Get() { return m_Wrapper.m_Rat; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -481,6 +514,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_RatActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_RatActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_RatActionsCallbackInterface.OnMovement;
+                @Dash.started -= m_Wrapper.m_RatActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_RatActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_RatActionsCallbackInterface.OnDash;
             }
             m_Wrapper.m_RatActionsCallbackInterface = instance;
             if (instance != null)
@@ -488,6 +524,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
             }
         }
     }
@@ -519,5 +558,6 @@ public class @InputManager : IInputActionCollection, IDisposable
     public interface IRatActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
 }
