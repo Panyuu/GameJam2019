@@ -9,25 +9,10 @@ ModelImporter:
   - first:
       74: 5862543501114407046
     second: Kneel
-  externalObjects:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Haut
-    second: {fileID: 8826224055993685310, guid: 305444ea7cb6aa4498c5dc6650d9501c,
-      type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: "g\xFCrtel1"
-    second: {fileID: -3003107310867957504, guid: 305444ea7cb6aa4498c5dc6650d9501c,
-      type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: hose1
-    second: {fileID: 7342867441359041452, guid: 305444ea7cb6aa4498c5dc6650d9501c,
-      type: 3}
+      74: -3100369314251171874
+    second: Idle
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -47,18 +32,19 @@ ModelImporter:
       improve retargeting quality.\n\t'Brust' is inbetween humanoid transforms and
       has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: "\nRetargeting quality report for clip 'Take 001':\n\tLeftLowerLeg
-      average position error 0.4 mm and maximum position error 1.2 mm at time 1:14
-      (18.8%) Frame 38\n\tRightLowerLeg average position error 0.4 mm and maximum
-      position error 6.7 mm at time 0: 5 (2.0%) Frame 5\n\tLeftUpperArm average position
-      error 3.6 mm and maximum position error 43.2 mm at time 5: 0 (60.4%) Frame 120\n\tLeftLowerArm
-      average position error 3.4 mm and maximum position error 38.8 mm at time 5:
-      5 (62.9%) Frame 125\n\tLeftHand average position error 2.7 mm and maximum position
-      error 38.4 mm at time 5: 5 (62.9%) Frame 125\n\tRightUpperArm average position
-      error 4.4 mm and maximum position error 58.2 mm at time 5: 0 (60.4%) Frame 120\n\tRightLowerArm
-      average position error 6.5 mm and maximum position error 61.1 mm at time 5:
-      0 (60.4%) Frame 120\n\tRightHand average position error 3.9 mm and maximum position
-      error 54.6 mm at time 5: 0 (60.9%) Frame 120\n\tHead average position error
-      2.0 mm and maximum position error 41.1 mm at time 5: 0 (60.4%) Frame 120\n"
+      average position error 0.3 mm and maximum position error 1.2 mm at time 1:14
+      (18.8%) Frame 38\n\tRightLowerLeg average position error 2.4 mm and maximum
+      position error 6.7 mm at time 5:18 (70.1%) Frame 138\n\tLeftUpperArm average
+      position error 7.8 mm and maximum position error 43.2 mm at time 5: 0 (60.4%)
+      Frame 120\n\tLeftLowerArm average position error 5.6 mm and maximum position
+      error 38.8 mm at time 5: 5 (62.9%) Frame 125\n\tLeftHand average position error
+      4.2 mm and maximum position error 38.4 mm at time 5: 5 (62.9%) Frame 125\n\tRightUpperArm
+      average position error 9.1 mm and maximum position error 58.2 mm at time 5:
+      0 (60.4%) Frame 120\n\tRightLowerArm average position error 6.9 mm and maximum
+      position error 61.1 mm at time 5: 0 (60.4%) Frame 120\n\tRightHand average position
+      error 4.6 mm and maximum position error 54.6 mm at time 5: 0 (60.9%) Frame 120\n\tHead
+      average position error 2.1 mm and maximum position error 41.1 mm at time 5:
+      0 (60.4%) Frame 120\n"
     animationDoRetargetingWarnings: 1
     importAnimatedCustomProperties: 0
     importConstraints: 0
@@ -105,6 +91,35 @@ ModelImporter:
       internalID: 0
       firstFrame: 110
       lastFrame: 125
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.96
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 140
+      lastFrame: 160
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -8,6 +8,7 @@ public class Human : MonoBehaviour {
 
     public int ratsPlus;
 
+    private Animator _animator;
     // Start is called before the first frame update
     private void Start() {
         health = 100;
@@ -15,6 +16,7 @@ public class Human : MonoBehaviour {
         isInfected = false;
         ratIsClose = false;
         docIsClose = false;
+        _animator = GetComponent<Animator>();
     }
 
     private void Update() {
@@ -25,8 +27,10 @@ public class Human : MonoBehaviour {
 
         if (!docIsClose && isInfected && health >= 0) HealthDrain();
 
-        if (health <= 0) isDead = true;
-
+        if (health <= 0) {
+            isDead = true;
+            _animator.SetBool("dead", true);
+        }
         if (isDead) gameObject.GetComponent<SphereCollider>().radius = 1;
     }
 
@@ -57,6 +61,7 @@ public class Human : MonoBehaviour {
         }
 
         isInfected = true;
+        _animator.SetBool("infected", true);
     }
 
     public void HealthDrain()
