@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 public class Doctor : MonoBehaviour {
     // Creates Instance of InputManager class.
@@ -8,7 +9,7 @@ public class Doctor : MonoBehaviour {
     // Stores Context of the InputSystem.
     private Vector2 _movementInput;
 
-    public float _speed;
+    [FormerlySerializedAs("_speed")] public float speed;
     private NavMeshAgent _agent;
 
     private Animator _animator;
@@ -41,7 +42,7 @@ public class Doctor : MonoBehaviour {
 
     public void Update() {
         // Creates the movement Vector3, to change the player's position.
-         var movement = Time.deltaTime * _speed * new Vector3(_movementInput.x, 0, _movementInput.y);
+         var movement = Time.deltaTime * speed * new Vector3(_movementInput.x, 0, _movementInput.y);
 
         // Make rats move.
         _agent.Move(movement);

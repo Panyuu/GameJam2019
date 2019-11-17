@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class Crow : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Crow : MonoBehaviour
     // Stores Context of the InputSystem.
     private Vector2 _movementInput;
 
-    public float _speed;
+    [FormerlySerializedAs("_speed")] public float speed;
 
     public Camera docCam;
     public Doctor doctor;
@@ -31,7 +32,7 @@ public class Crow : MonoBehaviour
         var movement = new Vector3(_movementInput.x, 0, _movementInput.y);
 
         // Make crow move.
-        transform.position += Time.deltaTime * _speed * movement;
+        transform.position += Time.deltaTime * speed * movement;
     }
 
     // used to disable crow mode.

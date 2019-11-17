@@ -1,23 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 public class FoodConsumeValue : MonoBehaviour
 {
     public float satiation;
     public int ratsPlus;
 
-    public int RespawnTimer;
+    [FormerlySerializedAs("RespawnTimer")] public int respawnTimer;
 
-    private Collider collider;
+    private Collider _collider;
 
     private void Awake()
     {
-        collider = GetComponent<Collider>();
+        _collider = GetComponent<Collider>();
     }
     public (float,int) Consume()
     {
-        collider.enabled = false;
+        _collider.enabled = false;
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(false);
@@ -31,13 +32,13 @@ public class FoodConsumeValue : MonoBehaviour
 
     public IEnumerator Respawn()
     {
-        yield return new WaitForSecondsRealtime(RespawnTimer);
+        yield return new WaitForSecondsRealtime(respawnTimer);
 
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(true);
         }
-        collider.enabled = true;
+        _collider.enabled = true;
 
     }
 }

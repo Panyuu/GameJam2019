@@ -7,11 +7,11 @@ using Random = UnityEngine.Random;
 
 public class Rats : MonoBehaviour {
 
-    public float _satiation;
+    public float satiation;
     
     private readonly Queue<GameObject> _ratObjectQueue = new Queue<GameObject>();
 
-    int ratCount;
+    int _ratCount;
     public float hungerMulti, infectionMulti, baseDamage, dashMulti;
     public GameObject ratPrefab;
     public bool isDashing;
@@ -20,18 +20,18 @@ public class Rats : MonoBehaviour {
     private void Start()
     {
         RatFollow.Mainrat = transform;
-        _satiation = 50;
-        ratCount = 1;
+        satiation = 50;
+        _ratCount = 1;
         StartCoroutine(Decay());
         
     }
 
     private void Update()
     {
-        Debug.Log(ratCount);
+        Debug.Log(_ratCount);
 
         Hunger();
-        Debug.Log(_satiation);
+        Debug.Log(satiation);
     }
 
     private void OnTriggerStay(Collider other) {
@@ -46,9 +46,36 @@ public class Rats : MonoBehaviour {
 
             if (!human) return;
 
-            human.Infect(ratCount);
+            human.Infect(_ratCount);
+
+            human.ratIsClose = true;
+
+            if (human.isDead)
+            {
+                if (satiation >= 100)
+                {
+                    satiation = Mathf.Clamp(satiation, -1000, 100);
+                }
+
+                var (item1, item2) = human.Consume();
+                satiation += item1;
+                InstantiateRats(item2);
+
+                //Debug.Log("Satiation" + ": " + _satiation);
+            }
         }
 
+        if (!other.CompareTag("Food")) return;
+        var food = other.GetComponent<FoodConsumeValue>();
+
+        if (satiation >= 100)
+        {
+            Mathf.Clamp(satiation, -1000, 100);
+        }
+
+        var (item3, item4) = food.Consume();
+        satiation += item3;
+        InstantiateRats(item4);
     }
 
     private void OnTriggerExit(Collider other)
@@ -76,13 +103,13 @@ public class Rats : MonoBehaviour {
 
             if (human.isDead)
             {
-                if (_satiation >= 100)
+                if (satiation >= 100)
                 {
-                    _satiation = Mathf.Clamp(_satiation, -1000, 100);
+                    satiation = Mathf.Clamp(satiation, -1000, 100);
                 }
 
                 var (item1, item2) = human.Consume();
-                _satiation += item1;
+                satiation += item1;
                 InstantiateRats(item2);
                 
                 //Debug.Log("Satiation" + ": " + _satiation);
@@ -92,13 +119,13 @@ public class Rats : MonoBehaviour {
         if (!other.CompareTag("Food")) return;
         var food = other.GetComponent<FoodConsumeValue>();
 
-        if (_satiation >= 100)
+        if (satiation >= 100)
         {
-            Mathf.Clamp(_satiation, -1000, 100);
+            Mathf.Clamp(satiation, -1000, 100);
         }
 
         var (item3, item4) = food.Consume();
-        _satiation += item3;
+        satiation += item3;
         InstantiateRats(item4);
 
     }
@@ -106,14 +133,14 @@ public class Rats : MonoBehaviour {
     public void Hunger()
     {
 
-        _satiation -=  (isDashing?dashMulti:hungerMulti) * Time.deltaTime;
-        _satiation = Mathf.Clamp(_satiation, -100, 1000);
+        satiation -=  (isDashing?dashMulti:hungerMulti) * Time.deltaTime;
+        satiation = Mathf.Clamp(satiation, -100, 1000);
     }
     public IEnumerator Decay()
     {
         while (true)
         {
-            DeleteRats(1+(int)(-_satiation/25));
+            DeleteRats(1+(int)(-satiation/25));
             yield return new WaitForSecondsRealtime(1);
         }
     }
@@ -121,7 +148,7 @@ public class Rats : MonoBehaviour {
     {
         for (var i = 0; i < rats; i++)
         {
-            ratCount++;
+            _ratCount++;
             var insideUnitCircle = Random.insideUnitCircle * 5;
             var mainRat = gameObject;
             var position = mainRat.transform.position;
@@ -133,18 +160,18 @@ public class Rats : MonoBehaviour {
             newRat.gameObject.AddComponent<RatFollow>();
             _ratObjectQueue.Enqueue(newRat);
         }
-        Debug.Log(ratCount);
+        Debug.Log(_ratCount);
     }
 
     public void DeleteRats(int ratsToSubstract)
     {
-        if (ratCount <= 0) return;
+        if (_ratCount <= 0) return;
 
         for (var i = 0; i < ratsToSubstract; i++)
         {
             if (_ratObjectQueue.Count > 0)
             {
-                ratCount--;
+                _ratCount--;
                 Destroy(_ratObjectQueue.Dequeue());
             }
         }
@@ -152,6 +179,6 @@ public class Rats : MonoBehaviour {
 
     public void InsenceDamage()
     {
-        ratCount -= (int)(baseDamage * Time.deltaTime);
+        _ratCount -= (int)(baseDamage * Time.deltaTime);
     }
 }

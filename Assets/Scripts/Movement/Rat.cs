@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 public class Rat : MonoBehaviour {
     // Creates Instance of InputManager class.
@@ -8,12 +9,15 @@ public class Rat : MonoBehaviour {
     // Stores Context of the InputSystem.
     private Vector2 _movementInput;
 
-    public float _speed, _dash, _currentSpeed, DashSatiation;
-    private Rats rats;
+    [FormerlySerializedAs("_speed")] public float speed;
+    [FormerlySerializedAs("_dash")] public float dash;
+    [FormerlySerializedAs("_currentSpeed")] public float currentSpeed;
+    [FormerlySerializedAs("DashSatiation")] public float dashSatiation;
+    private Rats _rats;
     private NavMeshAgent _agent;
     public void Awake() {
         _controls = new InputManager();
-        rats = GetComponent<Rats>();
+        _rats = GetComponent<Rats>();
         // Gets the context of the InputSystem and saves it in movementInput.
         _controls.Rat.Movement.performed += ctx => _movementInput = ctx.ReadValue<Vector2>();
         _agent = GetComponent<NavMeshAgent>();
@@ -25,7 +29,7 @@ public class Rat : MonoBehaviour {
 
     public void Update() {
         // Creates the movement Vector3, to change the player's position.
-        var movement = Time.deltaTime * _currentSpeed * new Vector3(_movementInput.x, 0, _movementInput.y);
+        var movement = Time.deltaTime * currentSpeed * new Vector3(_movementInput.x, 0, _movementInput.y);
 
         // Make rats move.
         _agent.Move(movement);
@@ -34,8 +38,8 @@ public class Rat : MonoBehaviour {
 
     public void Dash(bool isPressed) {
 
-        _currentSpeed = isPressed ? _dash : _speed;
-        rats.isDashing = isPressed;
+        currentSpeed = isPressed ? dash : speed;
+        _rats.isDashing = isPressed;
         
     }
 
