@@ -17,6 +17,10 @@ public class Human : MonoBehaviour
 
     public float currentratCountValue;
 
+    public float satiation;
+
+    public int ratsPlus;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +36,7 @@ public class Human : MonoBehaviour
         if (!ratIsClose && infectionMeter >= 0 && infectionMeter <= 100)
         {
             Debug.Log("InfectionMeter decay" + ": " + infectionMeter);
-            infectionMeter -= 10 * Time.deltaTime;
+            infectionMeter -= 70 * Time.deltaTime;
         }
 
         if (isInfected && health >= 0)
@@ -52,17 +56,18 @@ public class Human : MonoBehaviour
 
     }
 
-    public int Consume()
+    public Vector2 Consume()
     {
+        Vector2 consumeGain = new Vector2(satiation, ratsPlus);
         Destroy(gameObject);
 
-        return 1;
+        return consumeGain;
     }
 
     public void Infect(float ratCount)
     {
 
-        Debug.Log("InfectionMeter" + " : " + infectionMeter);
+        //Debug.Log("InfectionMeter" + " : " + infectionMeter);
 
         if (health <= 0)
         {
@@ -89,8 +94,8 @@ public class Human : MonoBehaviour
 
     public void HealthDrain()
     {
-        health -= (10 + currentratCountValue * 0.25f) * Time.deltaTime;
-        Debug.Log("Health" + " : " + health);
+        health -= (80 + currentratCountValue * 0.25f) * Time.deltaTime;
+        //Debug.Log("Health" + " : " + health);
     }
 
 }
