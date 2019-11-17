@@ -20,7 +20,7 @@ public class Rats : MonoBehaviour {
     // Update is called once per frame
     void Start()
     {
-        RatFollow.mainrat = transform;
+        RatFollow.Mainrat = transform;
         _satiation = 50;
         ratCount = 1;
         StartCoroutine(Decay());
@@ -43,18 +43,17 @@ public class Rats : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Human"))
-        {
+        if (other.CompareTag("Human")) {
             var human = other.GetComponent<Human>();
 
-            if (!human)
-            {
+            if (!human) {
                 return;
             }
+            else {
 
-        if (!human) return;
-
-        human.ratIsClose = false;
+                human.ratIsClose = false;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -90,7 +89,7 @@ public class Rats : MonoBehaviour {
 
             InstantiateRats(food.ratsPlus);
 
-        }
+        
     }
 
     public void Hunger()

@@ -35,20 +35,19 @@ public class PlagueDoctor : MonoBehaviour {
         else if (human.docIsClose && human.health > 100) {
 
             // When health is full one second delay until infection is reversed.
-            else if (human.docIsClose && human.health >= 100) {
+            if (human.docIsClose && human.health >= 100) {
 
-            SetWaitForNonInfection(GetWaitForNonInfection() + 1);
+                SetWaitForNonInfection(GetWaitForNonInfection() + 1);
 
-            // Delay.
-            StartCoroutine(ResetInfectionMeter(other));
+                // Delay.
+                StartCoroutine(ResetInfectionMeter(other));
 
+            }
         }
     }
 
     // Triggered, when doctor leaves human.
     private void OnTriggerExit(Collider other) {
-        if (!other.CompareTag("Human")) return;
-        var human = other.GetComponent<Human>();
 
         if (other.CompareTag("Human")) {
             var human = other.GetComponent<Human>();
@@ -58,7 +57,7 @@ public class PlagueDoctor : MonoBehaviour {
     }
 
     // For da delay.
-    public IEnumerator ResetInfectionMeter(Collider other) {
+    IEnumerator ResetInfectionMeter(Collider other) {
 
         var human = other.GetComponent<Human>();
 
@@ -66,7 +65,7 @@ public class PlagueDoctor : MonoBehaviour {
 
         yield return new WaitUntil(() => GetWaitForNonInfection() >= 60);
 
-        setWaitForNonInfection(0);
+        SetWaitForNonInfection(0);
         human.health = 100;
         human.infectionMeter = 0;
         human.isInfected = false;
@@ -74,12 +73,12 @@ public class PlagueDoctor : MonoBehaviour {
 
 
     // to modify the waitForNonInfection variable.
-    public int GetWaitForNonInfection() {
+    int GetWaitForNonInfection() {
 
         return _waitForNonInfection;
     }
 
-    public void SetWaitForNonInfection(int wait) {
+    void SetWaitForNonInfection(int wait) {
 
         _waitForNonInfection = wait;
     }

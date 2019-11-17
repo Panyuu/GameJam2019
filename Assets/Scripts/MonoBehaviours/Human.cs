@@ -13,10 +13,6 @@ public class Human : MonoBehaviour {
 
     public bool ratIsClose, docIsClose;
 
-    public bool ratIsClose;
-
-    public float currentratCountValue;
-
     public float satiation;
 
     public int ratsPlus;
