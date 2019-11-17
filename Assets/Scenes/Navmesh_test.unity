@@ -517,28 +517,48 @@ PrefabInstance:
     - target: {fileID: 9204252182408683705, guid: bd5d2d64282e3b242ae3fc5bba2c0d13,
         type: 3}
       propertyPath: hungerMulti
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9204252182408683705, guid: bd5d2d64282e3b242ae3fc5bba2c0d13,
         type: 3}
       propertyPath: baseDamage
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 9204252182408683705, guid: bd5d2d64282e3b242ae3fc5bba2c0d13,
+        type: 3}
+      propertyPath: infectionMulti
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204252182408683705, guid: bd5d2d64282e3b242ae3fc5bba2c0d13,
+        type: 3}
+      propertyPath: dashMulti
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9204252182408683704, guid: bd5d2d64282e3b242ae3fc5bba2c0d13,
         type: 3}
       propertyPath: _dash
-      value: 20
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 9204252182408683704, guid: bd5d2d64282e3b242ae3fc5bba2c0d13,
         type: 3}
       propertyPath: _speed
-      value: 9
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9204252182408683704, guid: bd5d2d64282e3b242ae3fc5bba2c0d13,
         type: 3}
       propertyPath: _currentSpeed
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 9204252182408683704, guid: bd5d2d64282e3b242ae3fc5bba2c0d13,
+        type: 3}
+      propertyPath: DashSatiation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204252182408683704, guid: bd5d2d64282e3b242ae3fc5bba2c0d13,
+        type: 3}
+      propertyPath: rats
+      value: 
+      objectReference: {fileID: 1073361908}
     - target: {fileID: 9204252182408683706, guid: bd5d2d64282e3b242ae3fc5bba2c0d13,
         type: 3}
       propertyPath: m_IsKinematic
@@ -2173,6 +2193,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3757746019699449743, guid: ea5a317b9eb0a3a429376d4907af3427,
     type: 3}
   m_PrefabInstance: {fileID: 1007436521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1073361908 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9204252182408683711, guid: bd5d2d64282e3b242ae3fc5bba2c0d13,
+    type: 3}
+  m_PrefabInstance: {fileID: 167621941}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1096571920
 PrefabInstance:
@@ -4737,6 +4763,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174041925862310157, guid: 1953b702658b2e24081ef7fc1fa48fe0,
+        type: 3}
+      propertyPath: _speed
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7321350678521516239, guid: 1953b702658b2e24081ef7fc1fa48fe0,
         type: 3}

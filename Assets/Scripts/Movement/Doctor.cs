@@ -8,7 +8,7 @@ public class Doctor : MonoBehaviour {
     // Stores Context of the InputSystem.
     private Vector2 _movementInput;
 
-    private float _speed;
+    public float _speed;
     private NavMeshAgent _agent;
 
     private Animator _animator;
@@ -22,7 +22,6 @@ public class Doctor : MonoBehaviour {
     public GameObject crow;
 
     public void Awake() {
-        _speed = 7f;
 
         _insideTrigger = false;
         _incenseCarried = false;
