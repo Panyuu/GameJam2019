@@ -1,88 +1,69 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Rats : MonoBehaviour
-{
-    public GameObject human;
-    public GameObject food;
+public class Rats : MonoBehaviour {
+    private float _hunger;
 
-    public float foodCount;
+    private List<Rat> _ratObjectList = new List<Rat>();
 
-    public static int ratCount;
-    
+    public int ratCount;
+
+    public GameObject ratPrefab;
+
     // Update is called once per frame
-    void Start()
-    {
-        foodCount = 1;
+    private void Start() {
+        RatFollow.Mainrat = transform;
+        _hunger = 50;
         ratCount = 1;
-    }
-    
-    void Update()
-    {
- 
+
+        for (var i = 0; i < 100; i++) {
+            Instantiate(ratPrefab, transform.position, Quaternion.identity);
+        }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
+    private void OnTriggerStay(Collider other) {
         var human = other.GetComponent<Human>();
 
-        if (!human)
-        {
-            return;
-        }
+        if (!human) return;
 
         human.Infect(ratCount);
-
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Human"))
-        {
-            var human = other.GetComponent<Human>();
-            
-            if (!human)
-            {
-                return;
-            }
+    private void OnTriggerExit(Collider other) {
+        if (!other.CompareTag("Human")) return;
+        var human = other.GetComponent<Human>();
 
-            human.ratIsClose = false;
-        }
+        if (!human) return;
+
+        human.ratIsClose = false;
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Human"))
-        {
+    private void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Human")) {
             var human = other.GetComponent<Human>();
 
             human.ratIsClose = true;
 
-            if (!human)
-            {
-                return;
-            }
+            if (!human) return;
 
-            if (human.isDead)
-            {
-                foodCount += human.Consume();
-            }
+            if (human.isDead) _hunger += human.Consume();
         }
 
-        if (other.CompareTag("Food"))
-        {
-            var food = other.GetComponent<Human>();
+        if (!other.CompareTag("Food")) return;
+        var food = other.GetComponent<Human>();
 
-            //foodCount += food.Consume;
-            Destroy(food);
-        }
+        _hunger += food.Consume();
+        Destroy(food);
     }
 
-    void Multiply()
-    {
-        if (foodCount == 10f + (ratCount - 1f) * 4f)
-        {
-            ratCount++;
-        }
+
+    public void RatCounter(int currentcount) {
+        ratCount = currentcount;
+    }
+
+    public void Hunger() { }
+
+    public void Decay() {
+        if (_hunger < -100) return;
     }
 }

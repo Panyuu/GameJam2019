@@ -1,6 +1,5 @@
 ﻿using Unity.Mathematics;
 using UnityEngine;
-using Random = Unity.Mathematics.Random;
 
 [DisallowMultipleComponent]
 public class CameraFollow : MonoBehaviour {
@@ -16,6 +15,7 @@ public class CameraFollow : MonoBehaviour {
         transform.position = new float3 {xyz = objectToFollow.position} + _camOffset;
         transform.rotation = Quaternion.Euler(_cameraSettings.viewAngle, 0.0f, 0.0f);
         _maxDist = _cameraSettings.maxDistFromPlayer * _cameraSettings.maxDistFromPlayer;
+        transform.parent = null;
     }
 
     // Update is called once per frame
