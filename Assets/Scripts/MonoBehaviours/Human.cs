@@ -30,12 +30,11 @@ public class Human : MonoBehaviour {
         if (isDead) gameObject.GetComponent<SphereCollider>().radius = 1;
     }
 
-    public Vector2 Consume()
+    public (float, int) Consume()
     {
-        Vector2 consumeGain = new Vector2(satiation, ratsPlus);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
 
-        return consumeGain;
+        return (satiation, ratsPlus);
     }
 
     public void Infect(float ratCount)
