@@ -12,7 +12,7 @@ public class Rats : MonoBehaviour {
     private readonly Queue<GameObject> _ratObjectQueue = new Queue<GameObject>();
 
     public float hungerMulti, infectionMulti, baseDamage, dashMulti;
-    public int ratCount;
+    public int _ratCount;
     public GameObject ratPrefab;
     public bool isDashing;
 
@@ -29,7 +29,6 @@ public class Rats : MonoBehaviour {
     private void Update()
     {
         Hunger();
-        Debug.Log(satiation);
     }
 
     private void OnTriggerStay(Collider other) {

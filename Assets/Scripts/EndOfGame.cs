@@ -45,11 +45,9 @@ public class EndOfGame : MonoBehaviour
             Debug.Log("Humans Dead");
             return true;
         }
-        else {
 
-            return false;
-        }
-    
+        return false;
+
     }
 
     // Condition, that the doctor wins.
@@ -62,13 +60,10 @@ public class EndOfGame : MonoBehaviour
             Debug.Log("Time is up");
             return true;
         }
-        else if (rat.ratCount == 0) {
 
-            Debug.Log("Rats dead");
-            return true;
-        }
-        else {
-            return false;
-        }
+        if (rat._ratCount != 0) return false;
+        Debug.Log("Rats dead");
+        return true;
+
     }
 }
