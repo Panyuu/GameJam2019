@@ -134,7 +134,9 @@ public class Rats : MonoBehaviour {
             }
     }
 
-    public void InsenceDamage() {
-        ratCount -= (int) (baseDamage * Time.deltaTime);
+    public void IncenseDamage()
+    {
+        if (_ratCount < 1) return;
+        DeleteRats((int)(baseDamage + baseDamage * Time.deltaTime));
     }
 }
