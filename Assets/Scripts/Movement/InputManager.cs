@@ -25,6 +25,22 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""PickUpObject"",
+                    ""type"": ""Button"",
+                    ""id"": ""f611fcd1-c66c-4fe0-9f08-9cd4628c94e0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""CrowMode"",
+                    ""type"": ""Button"",
+                    ""id"": ""07acfcc9-5c4f-4c5c-82ea-5b162f63f178"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -82,6 +98,105 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Controller"",
+                    ""id"": ""7cf3a6d4-b742-411f-ac7d-3216c860c15d"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""3eab0f19-c7e2-48e5-ac10-6b8512face8b"",
+                    ""path"": ""<XInputController>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""a63b24a3-04fa-4dab-8937-47e64393ae71"",
+                    ""path"": ""<XInputController>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""8536414a-0e46-4cca-aeb5-5914c0ab20ec"",
+                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""759cc66f-649d-4d6b-9a01-e7fda0ab2d75"",
+                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08c8dcb0-eee4-41b0-8710-2372db38ae4d"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""PickUpObject"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b18a9e7d-d725-48bc-8ed0-6c143a4a034a"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""PickUpObject"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a78bdf2e-b902-498d-897b-25f41f10056b"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""CrowMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba0b382e-8824-4ad1-89bc-d7c6a399c7cb"",
+                    ""path"": ""<XInputController>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""CrowMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -94,6 +209,14 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""d50c3e33-b49f-4ae0-9eaa-5bedb78f5768"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""c95f0de5-9a31-4c80-8d5c-ccb28337ceeb"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -153,6 +276,83 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Controller"",
+                    ""id"": ""864f6deb-4818-41f2-a79d-17af45420dae"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""ba496968-835d-4fc7-8118-b7d20dde9c69"",
+                    ""path"": ""<XInputController>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""175b6d86-0c65-4d39-a015-04afaec224a4"",
+                    ""path"": ""<XInputController>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""2cea2eef-382c-44f9-8cd3-80d9d3ad53c5"",
+                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""bcaf5a8c-5acd-4e84-b7e8-8b6550d053d3"",
+                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ecf49a7-46d6-4325-ac1b-17ef3368ad7c"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da8e5107-962e-414b-bf0a-2bf7a3cfad65"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -173,15 +373,29 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Controller"",
+            ""bindingGroup"": ""Controller"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<XInputController>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
         // PlagueDoctor
         m_PlagueDoctor = asset.FindActionMap("PlagueDoctor", throwIfNotFound: true);
         m_PlagueDoctor_Movement = m_PlagueDoctor.FindAction("Movement", throwIfNotFound: true);
+        m_PlagueDoctor_PickUpObject = m_PlagueDoctor.FindAction("PickUpObject", throwIfNotFound: true);
+        m_PlagueDoctor_CrowMode = m_PlagueDoctor.FindAction("CrowMode", throwIfNotFound: true);
         // Rat
         m_Rat = asset.FindActionMap("Rat", throwIfNotFound: true);
         m_Rat_Movement = m_Rat.FindAction("Movement", throwIfNotFound: true);
+        m_Rat_Dash = m_Rat.FindAction("Dash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -232,11 +446,15 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputActionMap m_PlagueDoctor;
     private IPlagueDoctorActions m_PlagueDoctorActionsCallbackInterface;
     private readonly InputAction m_PlagueDoctor_Movement;
+    private readonly InputAction m_PlagueDoctor_PickUpObject;
+    private readonly InputAction m_PlagueDoctor_CrowMode;
     public struct PlagueDoctorActions
     {
         private @InputManager m_Wrapper;
         public PlagueDoctorActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_PlagueDoctor_Movement;
+        public InputAction @PickUpObject => m_Wrapper.m_PlagueDoctor_PickUpObject;
+        public InputAction @CrowMode => m_Wrapper.m_PlagueDoctor_CrowMode;
         public InputActionMap Get() { return m_Wrapper.m_PlagueDoctor; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -249,6 +467,12 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnMovement;
+                @PickUpObject.started -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnPickUpObject;
+                @PickUpObject.performed -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnPickUpObject;
+                @PickUpObject.canceled -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnPickUpObject;
+                @CrowMode.started -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnCrowMode;
+                @CrowMode.performed -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnCrowMode;
+                @CrowMode.canceled -= m_Wrapper.m_PlagueDoctorActionsCallbackInterface.OnCrowMode;
             }
             m_Wrapper.m_PlagueDoctorActionsCallbackInterface = instance;
             if (instance != null)
@@ -256,6 +480,12 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @PickUpObject.started += instance.OnPickUpObject;
+                @PickUpObject.performed += instance.OnPickUpObject;
+                @PickUpObject.canceled += instance.OnPickUpObject;
+                @CrowMode.started += instance.OnCrowMode;
+                @CrowMode.performed += instance.OnCrowMode;
+                @CrowMode.canceled += instance.OnCrowMode;
             }
         }
     }
@@ -265,11 +495,13 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Rat;
     private IRatActions m_RatActionsCallbackInterface;
     private readonly InputAction m_Rat_Movement;
+    private readonly InputAction m_Rat_Dash;
     public struct RatActions
     {
         private @InputManager m_Wrapper;
         public RatActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Rat_Movement;
+        public InputAction @Dash => m_Wrapper.m_Rat_Dash;
         public InputActionMap Get() { return m_Wrapper.m_Rat; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -282,6 +514,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_RatActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_RatActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_RatActionsCallbackInterface.OnMovement;
+                @Dash.started -= m_Wrapper.m_RatActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_RatActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_RatActionsCallbackInterface.OnDash;
             }
             m_Wrapper.m_RatActionsCallbackInterface = instance;
             if (instance != null)
@@ -289,6 +524,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
             }
         }
     }
@@ -302,12 +540,24 @@ public class @InputManager : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_KeyboardMouseSchemeIndex];
         }
     }
+    private int m_ControllerSchemeIndex = -1;
+    public InputControlScheme ControllerScheme
+    {
+        get
+        {
+            if (m_ControllerSchemeIndex == -1) m_ControllerSchemeIndex = asset.FindControlSchemeIndex("Controller");
+            return asset.controlSchemes[m_ControllerSchemeIndex];
+        }
+    }
     public interface IPlagueDoctorActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnPickUpObject(InputAction.CallbackContext context);
+        void OnCrowMode(InputAction.CallbackContext context);
     }
     public interface IRatActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
 }

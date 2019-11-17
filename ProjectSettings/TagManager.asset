@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Human
   - Food
+  - Incense
+  - CrowCamera
   - Rat
   layers:
   - Default
@@ -16,9 +18,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Player
+  - CullArea
+  - Environment
   - 
   - 
   - 

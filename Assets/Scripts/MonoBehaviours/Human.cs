@@ -1,59 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+[RequireComponent(typeof(SphereCollider))] 
 
-public class Human : MonoBehaviour
-{
+public class Human : MonoBehaviour {
+    public float currentratCountValue, health, infectionMeter, satiation;
 
-    public float health;
-
-    public bool isDead;
-
-    public bool isInfected;
-
-    public float infectionMeter;
-
-    public bool ratIsClose;
-
-    public float currentratCountValue;
-
-    public float satiation;
+    public bool isDead, isInfected, ratIsClose, docIsClose;
 
     public int ratsPlus;
 
+    private Animator _animator;
     // Start is called before the first frame update
-    void Start()
-    {
+    private void Start() {
         health = 100;
         isDead = false;
         isInfected = false;
         ratIsClose = false;
-
+        docIsClose = false;
+        _animator = GetComponent<Animator>();
     }
 
-    void Update()
-    {
-        if (!ratIsClose && infectionMeter >= 0 && infectionMeter <= 100)
-        {
+    private void Update() {
+        if (!ratIsClose && infectionMeter >= 0 && infectionMeter <= 100) {
             Debug.Log("InfectionMeter decay" + ": " + infectionMeter);
             infectionMeter -= 70 * Time.deltaTime;
         }
 
-        if (isInfected && health >= 0)
-        {
-            HealthDrain();
-        }
-        
-        if(health <= 0)
-        {
+        if (!docIsClose && isInfected && health >= 0) HealthDrain();
+
+        if (health <= 0) {
             isDead = true;
+            _animator.SetBool("dead", true);
         }
-
-        if (isDead == true)
-        {
-            gameObject.GetComponent<SphereCollider>().radius = 1;
-        }
-
+        if (isDead) gameObject.GetComponent<SphereCollider>().radius = 1;
     }
 
     public (float, int) Consume()
@@ -69,26 +47,21 @@ public class Human : MonoBehaviour
         //Debug.Log("InfectionMeter" + " : " + infectionMeter);
 
         if (health <= 0)
-        {
+
+            return;
+
+        if (infectionMeter > 100)
+            return;
+
+        infectionMeter += 10 * Time.deltaTime;
+
+        if (infectionMeter <= 100) {
+            currentratCountValue = ratCount;
             return;
         }
-        else
-        {
-            if (infectionMeter > 100)
-                return;
 
-            infectionMeter += 10 * Time.deltaTime;
-
-            if (infectionMeter <= 100)
-            {
-                currentratCountValue = ratCount;
-                return;
-            }
-
-            isInfected = true;
-
-        }
-
+        isInfected = true;
+        _animator.SetBool("infected", true);
     }
 
     public void HealthDrain()
@@ -96,5 +69,4 @@ public class Human : MonoBehaviour
         health -= (80 + currentratCountValue * 0.25f) * Time.deltaTime;
         //Debug.Log("Health" + " : " + health);
     }
-
 }

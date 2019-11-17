@@ -5,19 +5,21 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-public class Rats : MonoBehaviour
-{
+public class Rats : MonoBehaviour {
 
     private float _satiation;
 
     public GameObject swarmRats;
     private readonly Queue<GameObject> _ratObjectQueue = new Queue<GameObject>();
 
-    public int ratCount;
+    int ratCount;
+
+    public GameObject ratPrefab;
+
     // Update is called once per frame
     private void Start()
     {
-        RatFollow.mainrat = transform;
+        RatFollow.Mainrat = transform;
         _satiation = 50;
         ratCount = 1;
         StartCoroutine(Decay());
@@ -25,22 +27,17 @@ public class Rats : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_satiation);
+        Debug.Log(ratCount);
 
         Hunger();
     }
 
-    private void OnTriggerStay(Collider other)
-    {
+    private void OnTriggerStay(Collider other) {
         var human = other.GetComponent<Human>();
 
-        if (!human)
-        {
-            return;
-        }
+        if (!human) return;
 
         human.Infect(ratCount);
-
     }
 
     private void OnTriggerExit(Collider other)
@@ -64,10 +61,7 @@ public class Rats : MonoBehaviour
 
             human.ratIsClose = true;
 
-            if (!human)
-            {
-                return;
-            }
+            if (!human) return;
 
             if (human.isDead)
             {
@@ -123,7 +117,7 @@ public class Rats : MonoBehaviour
             mainRat.transform.position = position;
 
             var mainratposition = position;
-            var newRat = Instantiate(swarmRats, mainratposition, Random.rotation);
+            var newRat = Instantiate(ratPrefab, mainratposition, Random.rotation);
 
             newRat.gameObject.AddComponent<RatFollow>();
             _ratObjectQueue.Enqueue(newRat);
