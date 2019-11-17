@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class FoodConsumeValue : MonoBehaviour
 {
-    public int consumeValue;
+    public float satiation;
+    public int ratsPlus;
 
-    // Start is called before the first frame update
-    void Start()
+    public (float,int) Consume()
     {
-        
-    }
+        gameObject.SetActive(false);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return (satiation, ratsPlus);
     }
 }
