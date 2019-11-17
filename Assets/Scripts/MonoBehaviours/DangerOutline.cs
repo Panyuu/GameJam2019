@@ -1,14 +1,10 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(LineRenderer))]
+[RequireComponent(typeof(LineRenderer), typeof(SphereCollider))]
 public class DangerOutline : MonoBehaviour
 {
     [Range(0, 50)]
     public int segments = 50;
-    [Range(0, 5)]
-    public float xradius = 5;
-    [Range(0, 5)]
-    public float yradius = 5;
 
     private LineRenderer _line;
 
@@ -22,19 +18,21 @@ public class DangerOutline : MonoBehaviour
             _line.useWorldSpace = false;
         }
 
-        CreatePoints();
+        var radius = GetComponent<SphereCollider>().radius;
+
+        CreatePoints(radius);
 
         _line.widthMultiplier = 0.10f;
     }
 
-    private void CreatePoints()
+    private void CreatePoints(float radius)
     {
         var angle = 20f;
 
         for (var i = 0; i < segments + 1; i++)
         {
-            var x = Mathf.Sin(Mathf.Deg2Rad * angle) * xradius;
-            var z = Mathf.Cos(Mathf.Deg2Rad * angle) * yradius;
+            var x = Mathf.Sin(Mathf.Deg2Rad * angle) * radius;
+            var z = Mathf.Cos(Mathf.Deg2Rad * angle) * radius;
 
             _line.SetPosition(i, new Vector3(x, 0, z));
 

@@ -153,6 +153,7 @@ MonoBehaviour:
   hungerMulti: 3
   infectionMulti: 0.2
   baseDamage: 1
+  incenseDmgMulti: 10
   dashMulti: 10
   isDashing: 0
   ratCount: 0

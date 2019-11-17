@@ -36,6 +36,7 @@ public class Human : MonoBehaviour {
     public (float, int) Consume()
     {
         gameObject.SetActive(false);
+        EndOfGame.Instance.HumanDied();
 
         return (satiation, ratsPlus);
     }

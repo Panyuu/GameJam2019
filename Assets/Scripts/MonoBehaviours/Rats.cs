@@ -5,9 +5,9 @@ using UnityEngine;
 public class Rats : MonoBehaviour {
     private readonly Queue<GameObject> _ratObjectQueue = new Queue<GameObject>();
 
-    public float hungerMulti, infectionMulti, baseDamage, dashMulti;
+    public float hungerMulti, infectionMulti, baseDamage, incenseDmgMulti, dashMulti;
     public bool isDashing;
-    public int ratCount;
+    public float ratCount;
     public GameObject ratPrefab;
 
     public float satiation;
@@ -120,23 +120,20 @@ public class Rats : MonoBehaviour {
             newRat.gameObject.AddComponent<RatFollow>();
             _ratObjectQueue.Enqueue(newRat);
         }
-
-        Debug.Log(ratCount);
     }
 
-    public void DeleteRats(int ratsToSubstract) {
-        if (ratCount <= 0) return;
+    public void DeleteRats(float ratsToSubstract) {
+        ratCount -= ratsToSubstract;
 
-        for (var i = 0; i < ratsToSubstract; i++)
-            if (_ratObjectQueue.Count > 0) {
-                ratCount--;
-                Destroy(_ratObjectQueue.Dequeue());
-            }
+        for (;ratCount < _ratObjectQueue.Count;) {
+            Destroy(_ratObjectQueue.Dequeue());
+        }
+
+        if (ratCount > 0) return;
+        EndOfGame.Instance.DocWin();
     }
 
-    public void IncenseDamage()
-    {
-        if (ratCount < 1) return;
-        DeleteRats((int)(baseDamage + baseDamage * Time.deltaTime));
+    public void IncenseDamage() {
+        DeleteRats(incenseDmgMulti * baseDamage * Time.deltaTime);
     }
 }

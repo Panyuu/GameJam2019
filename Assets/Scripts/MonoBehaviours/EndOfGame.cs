@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EndOfGame : MonoBehaviour
-{
+public class EndOfGame : MonoBehaviour {
+    public static EndOfGame Instance;
     private Rats _rats;
     private Timer _timer;
     public GameObject human;
@@ -13,31 +13,22 @@ public class EndOfGame : MonoBehaviour
         _rats = FindObjectOfType<Rats>();
         _timer = FindObjectOfType<Timer>();
         _livingHumans = human.transform.childCount;
+        Instance = this;
     }
 
-    private void Update() {
-
-        if (RatsWin()) {
-
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            enabled = false;
-        }
-        else if (DocWin()) {
-
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
-            enabled = false;
-        }
-        else {
-
-            _livingHumans = human.transform.childCount;
-        }
+    public void HumanDied() {
+        _livingHumans--;
+        if (_livingHumans >= 1) return;
+        RatsWin();
+        ;
     }
 
     // Condition, that rats win.
-    private bool RatsWin() {
+    public void RatsWin() {
 
-        return _livingHumans == 0;
-        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        enabled = false;
+
         //if (livingHumans == 0) {
 
         //    Debug.Log("Humans Dead");
@@ -49,9 +40,10 @@ public class EndOfGame : MonoBehaviour
     }
 
     // Condition, that the doctor wins.
-    private bool DocWin() {
+    public void DocWin() {
 
-        return _timer.maxPlayTime / 60 == 0 && _timer.maxPlayTime % 60 == 0 || _rats.ratCount == 0; 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        enabled = false;
         
         //if (timer.maxPlayTime / 60 == 0 && timer.maxPlayTime % 60 == 0) {
 

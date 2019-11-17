@@ -3,13 +3,13 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
-    public int maxPlayTime = 600;
+    public int maxPlayTime = 300;
     private string _minutes, _seconds;
     public Text text;
 
     private void Update() {
 
-        maxPlayTime = 600 - (int)Time.time;
+        maxPlayTime = 300 - (int)Time.time;
 
         _minutes = maxPlayTime/60 < 10 ? "" + maxPlayTime / 60 : "" + maxPlayTime / 60;
         _seconds = maxPlayTime%60 < 10 ? "0" + maxPlayTime % 60 : "" + maxPlayTime % 60;
