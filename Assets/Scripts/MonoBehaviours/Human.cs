@@ -34,9 +34,9 @@ public class Human : MonoBehaviour {
         if (isDead) gameObject.GetComponent<SphereCollider>().radius = 1;
     }
 
-    public (float,int) Consume()
+    public (float, int) Consume()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
 
         return (satiation, ratsPlus);
     }
