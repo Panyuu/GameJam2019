@@ -12,12 +12,12 @@ public class Rats : MonoBehaviour {
     public GameObject swarmRats;
     private readonly Queue<GameObject> _ratObjectQueue = new Queue<GameObject>();
 
-    int ratCount;
+    public int ratCount;
 
     public GameObject ratPrefab;
 
     // Update is called once per frame
-    private void Start()
+    private void Awake()
     {
         RatFollow.Mainrat = transform;
         _satiation = 50;
